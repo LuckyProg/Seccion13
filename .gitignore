@@ -61,3 +61,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/Seccion13/nbproject/private/
+/Seccion13/build/
+/Seccion13/dist/
