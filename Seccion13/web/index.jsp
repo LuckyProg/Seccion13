@@ -67,7 +67,7 @@
                         <a class="btn waves-effect white grey-text darken-text-2">button</a>
                       </div>
                     
-                    <a class="carousel-item" href="#one!"><img src="IMG/chales.png"></a>
+                    <a class="carousel-item" href="#one!"><img src="IMG/chale2.jpg"></a>
                     
                 </div>
         <script>
