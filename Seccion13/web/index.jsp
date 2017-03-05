@@ -12,95 +12,104 @@
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<script src="https://use.fontawesome.com/683092cb82.js"></script>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="js/iniciador.js" type="text/javascript"></script>
+        <script src="https://use.fontawesome.com/683092cb82.js"></script>
         <title>Seccion13</title>
     </head>
-    <body class="page-footer #d32f2f red darken-2">
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <div class="navbar-fixed">
-            <nav class="nav-extended #d32f2f red darken-2">
-                <div class="nav-wrapper ">
-                    
-                    <a href="#" class="brand-logo center ">
-                        
-                        <div style="margin-top: 10px;"class="valign-wrapper">
-                            <img style="max-height: 100px;" class="circle responsive-img" src="IMG/escudo1.jpg" alt=""/>
-                            <h3 class="valign">&nbsp;&nbsp;&nbsp;Sección 13 "Rama Médica"&nbsp;&nbsp;&nbsp;
-								<br>
-								<span class="light grey-text text-lighten-3 valign" style="font-size:25px;">Dr. Jaime Patiño Gutierrez</span>
-							</h3>
-                            <img style="max-width: 100px;" class=" circle responsive-img" src="IMG/escudo2.jpg" alt=""/>
-                        </div>  
-                        
-                    </a>
-                    
-                  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                  <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li>
-						<a class="waves-effect" href="#modal1">Iniciar Sesion</a>
-					</li>
-                    <li>
-						<a class="waves-effect" href="#modal2">Registrarse</a>
-					</li>
-                  </ul><br><br>
-                <ul class="side-nav" id="mobile-demo">
-                  <li><a href="#">Iniciar Sesion</a></li>
-                    <li><a href="#">Registrarse</a></li>
-                </ul>
-                </div>
-                <div class="nav-content">
-                  <ul class="tabs tabs-transparent">
-                    <li class="tab"><a href="#test1">Test 1</a></li>
-                    <li class="tab"><a class="active" href="#test2">Test 2</a></li>
-                    <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
-                    <li class="tab"><a href="#test4">Test 4</a></li>
-                    <li class="tab"><a href="#test4">Test 4</a></li>
-                    <li class="tab"><a href="#test4">Test 4</a></li>
-                    <li class="tab"><a href="#test4">Test 4</a></li>
-                    <li class="tab"><a href="#test4">Test 4</a></li>
-                  </ul>
-                </div>
-              </nav>
-            
-            
-        </div>
+    <body class="#d32f2f red darken-2">
         
-		<div class="slider" style="margin-top:9%;">
-			<ul class="slides">
-			  <li>
-				<img src="IMG/chale2.jpg">
-				<div class="caption center-align">
-				</div>
-			  </li>
-			  <li>
-				<img src="IMG/img2.jpg">
-				<div class="caption left-align">
-				</div>
-			  </li>
-			  <li>
-				<img src="IMG/img3.jpg">
-				<div class="caption right-align">
-				</div>
-			  </li>
-			  <li>
-				<img src="IMG/img4.jpg">
-				<div class="caption center-align">
-				</div>
-			  </li>
-			  <li>
-				<img src="IMG/img5.jpg">
-				<div class="caption left-align">
-				</div>
-			  </li>
-			</ul>
-		</div>
+        <!-- Navegador -->
+        <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-light" href="#modal1">Iniciar Sesion</a></li>
+        <li><a class="waves-effect waves-light" href="#modal2">Registrarse</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a class="waves-effect waves-light" href="#modal1">Iniciar Sesion</a></li>
+        <li><a class="waves-effect waves-light" href="#modal2">Registrarse</a></li>
+      </ul>
+    </div>
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a href="#test1">Test 1</a></li>
+        <li class="tab"><a class="active" href="#test2">Test 2</a></li>
+        <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
+        <li class="tab"><a href="#test4">Test 4</a></li>
+      </ul>
+    </div>
+                <script>$(".button-collapse").sideNav();</script>
+  </nav>
+        
+        <!-- Slider -->
+        <div class="carousel carousel-slider">
+            <a class="carousel-item" href="#one!"><img src="IMG/img2.jpg" alt=""/></a>
+            <a class="carousel-item" href="#two!"><img src="IMG/img3.jpg" alt=""/></a>
+            <a class="carousel-item" href="#three!"><img src="IMG/img4.jpg" alt=""/></a>
+            <a class="carousel-item" href="#four!"><img src="IMG/img5.jpg" alt=""/></a>
+        </div>
         <script>
-            $(document).ready(function(){
-			  $('.slider').slider();
-			});
+            $('.carousel.carousel-slider').carousel({fullWidth: true});
         </script>
-        <br>
+        
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- Footer -->
         <footer class="page-footer #d32f2f red darken-2 z-depth-5">
           <div class="container">
             <div class="row">
@@ -173,13 +182,77 @@
 				  <div class="row">
 					<div class="input-field col s6">
 					  <input id="first_name" type="text" class="validate">
-					  <label for="first_name">First Name</label>
+					  <label for="first_name">Nombre</label>
 					</div>
 					<div class="input-field col s6">
 					  <input id="last_name" type="text" class="validate">
-					  <label for="last_name">Last Name</label>
+					  <label for="last_name">Apellido Paterno</label>
+					</div>
+                                      <div class="input-field col s6 offset-s6">
+					  <input id="last_name" type="text" class="validate">
+					  <label for="last_name">Apellido Materno</label>
 					</div>
 				  </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+					  <input id="last_name" type="text" class="validate">
+					  <label for="last_name">Institución</label>
+					</div>
+                                        <div class="input-field col s12">
+					  <input id="last_name" type="text" class="validate">
+					  <label for="last_name">Unidad de Adscripción</label>
+					</div>
+                                        <div class="input-field col s12">
+					  <input id="last_name" type="text" class="validate">
+					  <label for="last_name">No. Empleado</label>
+					</div>
+                                        <div class="input-field col s12">
+                                        <select>
+                                          <option value="" disabled selected>-</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="1">Option 1</option>
+                                          <option value="2">Option 2</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                          <option value="3">Option 3</option>
+                                        </select>
+                                        <label>Sección Sindical</label>
+                                      </div>
+                                    </div>
 				  <div class="row">
 					<div class="input-field col s12">
 					  <input id="email" type="email" class="validate">
@@ -187,11 +260,16 @@
 					</div>
 				  </div>
 				  <div class="row">
-					<div class="input-field col s12">
+					<div class="input-field col s4 offset-s4">
 					  <input id="password" type="password" class="validate">
 					  <label for="password">Password</label>
 					</div>
 				  </div>
+                                    <script>
+                                      $(document).ready(function() {
+                                        $('select').material_select();
+                                      });
+                                    </script>
 				</form>
 			  </div>
 			</div>
@@ -207,5 +285,8 @@
 				$('.modal').modal();
 			  });
 		  </script>
+                  
+            
+        
 	</body>
 </html>
