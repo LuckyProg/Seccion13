@@ -149,11 +149,11 @@
 			  &nbsp;&nbsp;&nbsp;<h4><i class="medium material-icons" style="position:relative;top:10px;">perm_identity</i>&nbsp;Iniciar Sesión</h4>
 			  <br>
 			  <div class="row">
-				<form class="col s12">
+				<form class="col s12" name="login" method="post" action="IniciarSesion" >
 				  <div class="row">
 					<div class="input-field col s12">
 					  <input id="email" type="email" class="validate">
-					  <label for="email">Email</label>
+					  <label for="email">Correo</label>
 					</div>
 				  </div>
 				  <div class="row">
@@ -162,16 +162,16 @@
 					  <label for="password">Password</label>
 					</div>
 				  </div>
-				</form>
-			  </div>
-			</div>
-			<div class="modal-footer" style="padding-right:40px;">
-			  <button class="btn waves-effect waves-light #d32f2f red darken-2" type="submit" name="action" style="margin-top:-13px;">Iniciar
+                                    <div class="modal-footer" style="padding-right:40px;">
+			  <button class="btn waves-effect waves-light #d32f2f red darken-2" type="submit" name="cosa"  style="margin-top:-13px;">Iniciar
 				<i class="material-icons right">send</i>
 			  </button>
 			</div>
-		  </div>
-		  
+				</form>
+			  </div>
+			</div>
+			
+		  </div>		  
 		  <!-- Modal Structure -->
 		  <div id="modal2" class="modal col s12 m2" style="border-radius:15px;">
 			<div class="modal-content" style="margin-top:-30px;margin-bottom:-40px;">

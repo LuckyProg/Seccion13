@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class Conexion {
     
-    public static Connection getConexion(){
+    public Connection getConexion(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
             String url="jdbc:mysql://localhost:3306/seccion13";
