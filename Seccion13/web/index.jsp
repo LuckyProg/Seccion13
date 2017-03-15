@@ -152,13 +152,13 @@
 				<form class="col s12" name="login" method="post" action="IniciarSesion" >
 				  <div class="row">
 					<div class="input-field col s12">
-					  <input id="email" type="email" class="validate">
+					  <input id="email" type="email" name="email" class="validate">
 					  <label for="email">Correo</label>
 					</div>
 				  </div>
 				  <div class="row">
 					<div class="input-field col s12">
-					  <input id="password" type="password" class="validate">
+					  <input id="password" type="password" name="password" class="validate">
 					  <label for="password">Password</label>
 					</div>
 				  </div>
@@ -181,33 +181,33 @@
 				<form class="col s12">
 				  <div class="row">
 					<div class="input-field col s6">
-					  <input id="first_name" type="text" class="validate">
+					  <input id="first_name" name="nombre" type="text" class="validate">
 					  <label for="first_name">Nombre</label>
 					</div>
 					<div class="input-field col s6">
-					  <input id="last_name" type="text" class="validate">
+					  <input id="last_name" name="ap" type="text" class="validate">
 					  <label for="last_name">Apellido Paterno</label>
 					</div>
                                       <div class="input-field col s6 offset-s6">
-					  <input id="last_name" type="text" class="validate">
+					  <input id="last_name" name="am" type="text" class="validate">
 					  <label for="last_name">Apellido Materno</label>
 					</div>
 				  </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-					  <input id="last_name" type="text" class="validate">
+					  <input id="last_name" name="institucion" type="text" class="validate">
 					  <label for="last_name">Institución</label>
 					</div>
                                         <div class="input-field col s12">
-					  <input id="last_name" type="text" class="validate">
+					  <input id="last_name" name="unidad_ads" type="text" class="validate">
 					  <label for="last_name">Unidad de Adscripción</label>
 					</div>
                                         <div class="input-field col s12">
-					  <input id="last_name" type="text" class="validate">
+					  <input id="last_name" name="no_empleado" type="text" class="validate">
 					  <label for="last_name">No. Empleado</label>
 					</div>
                                         <div class="input-field col s12">
-                                        <select>
+                                        <select name="seccion_sindi">
                                           <option value="" disabled selected>-</option>
                                           <option value="1">Option 1</option>
                                           <option value="2">Option 2</option>

@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,8 +31,15 @@ public class IniciarSesion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        new Usuario().Usuarios(1);
-        response.sendRedirect("index.jsp");
+        Usuario usu = new Usuario().login(request.getParameter("email"), request.getParameter("password"));
+        if(usu == null){
+            response.sendRedirect("noentro.jsp");
+        }else{
+            HttpSession sesion =  request.getSession();
+            sesion.setAttribute("Usuario", usu);
+            response.sendRedirect("sientro.jsp");
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -21,7 +21,7 @@ public class Usuario {
     String pass;
     int rol;
 
-    public Usuario(int id_usuario, String nombre, String ap, String am, String inst, int no_empleado, int seccion_sindi, String unidad_ads, String correo, String pass, int rol) {
+    public Usuario(String nombre, String ap, String am, String inst, int no_empleado, int seccion_sindi, String unidad_ads, String correo, String pass, int rol) {
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.ap = ap;
@@ -61,21 +61,24 @@ public class Usuario {
     
     //Login Usuario
     
-    public ArrayList Usuarios(int caso){
-        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    public Usuario login(String correo, String pass){
+        //ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
+        Usuario usu = null;
         
         try{
             c = new Conexion().getConexion();
             
-            String sql = (caso==1) ?  "SELECT * FROM usuario WHERE id_usuario = ?" : "SELECT * FROM usuario";
+            String sql = "SELECT * FROM usuario where correo = ? and pass = ?";
             ps = c.prepareStatement(sql);
+            ps.setString(1, correo);
+            ps.setString(2, pass);
             rs = ps.executeQuery();
             
-            while(rs.next()){
-                usuarios.add(new Usuario(rs.getInt("id_usuario"),
+            while(rs.next()){             
+                usu = new Usuario(rs.getInt("id_usuario"),
                                          rs.getString("nombre"),
                                          rs.getString("apaterno"),
                                          rs.getString("amaterno"),
@@ -85,12 +88,11 @@ public class Usuario {
                                          rs.getString("unidad_ads"),
                                          rs.getString("correo"),
                                          rs.getString("pass"),
-                                         rs.getInt("rol"))); 
+                                         rs.getInt("rol")); 
             }
-            System.out.println(usuarios);
         }catch(SQLException ex){
             ex.printStackTrace();
-            usuarios = null;
+            usu = null;
         }finally{
             try{
                 rs.close();
@@ -100,10 +102,12 @@ public class Usuario {
                 ex.printStackTrace();
             }
         }
-        return usuarios;
+        System.out.println(usu);
+        return usu;
         
         
     }
+    
 
     public int getId_usuario() {
         return id_usuario;
