@@ -30,16 +30,21 @@ public class RegistrarUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            request.getParameter("nombre");
-            request.getParameter("ap");
-            request.getParameter("am");
-            request.getParameter("institucion");
-            request.getParameter("unidad_ads");
-            request.getParameter("seccion_sindi");
-            request.getParameter("email");
-            request.getParameter("password");
-            Usuario usu = new Usuario();
-            usu.registrarUsuario();
+            Usuario usu = new Usuario(request.getParameter("nombre"),
+                                      request.getParameter("ap"),
+                                      request.getParameter("am"),
+                                      request.getParameter("institucion"),
+                                      Integer.parseInt(request.getParameter("no_empleado")),
+                                      Integer.parseInt(request.getParameter("seccion_sindi")),
+                                      request.getParameter("unidad_ads"),
+                                      request.getParameter("email"),
+                                      request.getParameter("password"),
+                                      1);
+            if(usu.registrarUsuario()){
+                response.sendRedirect("siregistro.jsp");
+            }else{
+            response.sendRedirect("noregistro.jsp");
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

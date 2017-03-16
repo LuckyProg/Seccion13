@@ -14,7 +14,6 @@
 	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script src="js/iniciador.js" type="text/javascript"></script>
         <script src="https://use.fontawesome.com/683092cb82.js"></script>
         <title>Seccion13</title>
     </head>
@@ -22,9 +21,9 @@
         
         <!-- Navegador -->
         <nav class="nav-extended">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Logo</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a class="waves-effect waves-light" href="#modal1">Iniciar Sesion</a></li>
         <li><a class="waves-effect waves-light" href="#modal2">Registrarse</a></li>
@@ -55,56 +54,6 @@
         <script>
             $('.carousel.carousel-slider').carousel({fullWidth: true});
         </script>
-        
-        
-        
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -178,17 +127,17 @@
 			  &nbsp;&nbsp;<h4><i class="medium material-icons" style="position:relative;top:10px;">perm_identity</i>&nbsp;Registrarse</h4>
 			  <br>
 			  <div class="row">
-				<form class="col s12">
+				<form class="col s12" name="registro" method="post" action="RegistrarUsuario">
 				  <div class="row">
-					<div class="input-field col s6">
+					<div class="input-field col s12 l6">
 					  <input id="first_name" name="nombre" type="text" class="validate">
 					  <label for="first_name">Nombre</label>
 					</div>
-					<div class="input-field col s6">
+					<div class="input-field col s12 l6">
 					  <input id="last_name" name="ap" type="text" class="validate">
 					  <label for="last_name">Apellido Paterno</label>
 					</div>
-                                      <div class="input-field col s6 offset-s6">
+                                      <div class="input-field col s12 l6">
 					  <input id="last_name" name="am" type="text" class="validate">
 					  <label for="last_name">Apellido Materno</label>
 					</div>
@@ -203,7 +152,7 @@
 					  <label for="last_name">Unidad de Adscripción</label>
 					</div>
                                         <div class="input-field col s12">
-					  <input id="last_name" name="no_empleado" type="text" class="validate">
+					  <input id="last_name" name="no_empleado" type="number" class="validate">
 					  <label for="last_name">No. Empleado</label>
 					</div>
                                         <div class="input-field col s12">
@@ -212,27 +161,27 @@
                                           <option value="1">Option 1</option>
                                           <option value="2">Option 2</option>
                                           <option value="3">Option 3</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="1">Option 1</option>
-                                          <option value="2">Option 2</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="1">Option 1</option>
-                                          <option value="2">Option 2</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="1">Option 1</option>
-                                          <option value="2">Option 2</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="1">Option 1</option>
-                                          <option value="2">Option 2</option>
-                                          <option value="3">Option 3</option>
-                                          <option value="3">Option 3</option>
+                                          <option value="4">Option 3</option>
+                                          <option value="5">Option 3</option>
+                                          <option value="6">Option 1</option>
+                                          <option value="7">Option 2</option>
+                                          <option value="8">Option 3</option>
+                                          <option value="9">Option 3</option>
+                                          <option value="10">Option 3</option>
+                                          <option value="11">Option 1</option>
+                                          <option value="12">Option 2</option>
+                                          <option value="13">Option 3</option>
+                                          <option value="14">Option 3</option>
+                                          <option value="15">Option 3</option>
+                                          <option value="16">Option 1</option>
+                                          <option value="17">Option 2</option>
+                                          <option value="18">Option 3</option>
+                                          <option value="19">Option 3</option>
+                                          <option value="20">Option 3</option>
+                                          <option value="21">Option 1</option>
+                                          <option value="22">Option 2</option>
+                                          <option value="23">Option 3</option>
+                                          <option value="24">Option 3</option>
                                           <option value="3">Option 3</option>
                                           <option value="1">Option 1</option>
                                           <option value="2">Option 2</option>
@@ -255,13 +204,13 @@
                                     </div>
 				  <div class="row">
 					<div class="input-field col s12">
-					  <input id="email" type="email" class="validate">
+					  <input id="email" name="email" type="email" class="validate">
 					  <label for="email">Email</label>
 					</div>
 				  </div>
 				  <div class="row">
 					<div class="input-field col s4 offset-s4">
-					  <input id="password" type="password" class="validate">
+					  <input id="password" name="password" type="password" class="validate">
 					  <label for="password">Password</label>
 					</div>
 				  </div>
@@ -270,14 +219,15 @@
                                         $('select').material_select();
                                       });
                                     </script>
+                                    <div class="modal-footer" style="padding-right:40px;">
+                                        <button class="btn waves-effect waves-light #d32f2f red darken-2" type="submit" name="action" style="margin-top:-13px;">Registrarse
+                                              <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
 				</form>
 			  </div>
 			</div>
-			<div class="modal-footer" style="padding-right:40px;">
-			  <button class="btn waves-effect waves-light #d32f2f red darken-2" type="submit" name="action" style="margin-top:-13px;">Registrarse
-				<i class="material-icons right">send</i>
-			  </button>
-			</div>
+			
 		  </div>
 		  <script>
 			  $(document).ready(function(){

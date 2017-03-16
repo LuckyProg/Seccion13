@@ -1,6 +1,6 @@
 package Clases;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,19 +9,34 @@ import java.sql.SQLException;
 
 public class Usuario {
     
-    int id_usuario;
-    String nombre;
-    String ap;
-    String am;
-    String inst;
-    int no_empleado;
-    int seccion_sindi;
-    String unidad_ads;
-    String correo;
-    String pass;
-    int rol;
+    private int id_usuario;
+    private String nombre;
+    private String ap;
+    private String am;
+    private String inst;
+    private int no_empleado;
+    private int seccion_sindi;
+    private String unidad_ads;
+    private String correo;
+    private String pass;
+    private int rol;
 
-    public Usuario(String nombre, String ap, String am, String inst, int no_empleado, int seccion_sindi, String unidad_ads, String correo, String pass, int rol) {
+    //Constructores
+    
+    /**
+     * @param id_usuario
+     * @param nombre
+     * @param ap
+     * @param am
+     * @param inst
+     * @param no_empleado
+     * @param seccion_sindi
+     * @param unidad_ads
+     * @param correo
+     * @param pass
+     * @param rol 
+     */
+    public Usuario(int id_usuario,String nombre, String ap, String am, String inst, int no_empleado, int seccion_sindi, String unidad_ads, String correo, String pass, int rol) {
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.ap = ap;
@@ -34,33 +49,86 @@ public class Usuario {
         this.pass = pass;
         this.rol = rol;
     }
-
     
+    /**
+     * @param nombre
+     * @param ap
+     * @param am
+     * @param inst
+     * @param no_empleado
+     * @param seccion_sindi
+     * @param unidad_ads
+     * @param correo
+     * @param pass
+     * @param rol 
+     */
+    public Usuario(String nombre, String ap, String am, String inst, int no_empleado, int seccion_sindi, String unidad_ads, String correo, String pass, int rol) {
+        this.nombre = nombre;
+        this.ap = ap;
+        this.am = am;
+        this.inst = inst;
+        this.no_empleado = no_empleado;
+        this.seccion_sindi = seccion_sindi;
+        this.unidad_ads = unidad_ads;
+        this.correo = correo;
+        this.pass = pass;
+        this.rol = rol;
+    }
+
+    /**
+     * Constructor vacio como su cora
+     */
     public Usuario(){}
     
     
-    //Registro Usuario
+    /**
+     * 
+     * @return true si hay un registro exitoso
+     */
     public boolean registrarUsuario(){
-        if(validarUsuario()){
-            guardarUsuario();
+        Connection c = null;
+        PreparedStatement ps = null;
+        
+        try{
+            c = new Conexion().getConexion();
+            
+            String sql = "INSERT INTO usuario (nombre, apaterno, amaterno, instlabo, no_empleado, seccionsindi, unidad_ads, correo, pass, rol) values (?,?,?,?,?,?,?,?,?,?)";
+            ps = c.prepareStatement(sql);
+            ps.setString(1, this.nombre);
+            ps.setString(2, this.ap);
+            ps.setString(3, this.am);
+            ps.setString(4, this.inst);
+            ps.setInt(5, this.no_empleado);
+            ps.setInt(6, this.seccion_sindi);
+            ps.setString(7, this.unidad_ads);
+            ps.setString(8, this.correo);
+            ps.setString(9, this.pass);
+            ps.setInt(10, this.rol);
+            ps.executeUpdate();
             return true;
-        }else{
+            
+        }catch(SQLException ex){
+            ex.printStackTrace();
             return false;
+        }finally{
+            try{
+                ps.close();
+                c.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
         }
         
     }
-    
-    private boolean validarUsuario() {
-       return false; 
-    }
 
-    private void guardarUsuario() {
-        //TODO Conexion a base y registro
-    }
     
     
-    //Login Usuario
-    
+    /**
+     * 
+     * @param correo
+     * @param pass
+     * @return usuario para mandarlo como parametro de httpsession
+     */
     public Usuario login(String correo, String pass){
         //ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         Connection c = null;
@@ -102,13 +170,12 @@ public class Usuario {
                 ex.printStackTrace();
             }
         }
-        System.out.println(usu);
         return usu;
         
         
     }
     
-
+    //GETTERS
     public int getId_usuario() {
         return id_usuario;
     }
