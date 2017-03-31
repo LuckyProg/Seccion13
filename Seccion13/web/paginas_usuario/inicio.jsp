@@ -4,6 +4,8 @@
     Author     : Fernando
 --%>
 
+<%@page import="Clases.Post"%>
+<%@page import="java.util.Vector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,63 +14,38 @@
         <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="..js/materialize.min.js"></script>
-        
+        <script type="text/javascript" src="../js/materialize.min.js"></script>
         <title>JSP Page</title>
     </head>
-    <body>
+    <body class="#e57373 red lighten-2">
+        <jsp:include page="menu.jsp" flush="true"/>
+        <br>
+        <br>
         <div class="container">
-            
-            <div class="row">
-                <div class="col s12 l4">
-                    <div class="card horizontal">
-                      <div class="card-image">
-                        <img src="http://lorempixel.com/100/190/nature/6">
-                      </div>
-                      <div class="card-stacked">
-                        <div class="card-content">
-                          <p class="flow-text">I am a very simple card. I am good at containing small bits of information.</p>
-                        </div>
-                        <div class="card-action">
-                          <a href="#">This is a link</a>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                
-                <div class="col s12 l4">
-                    <div class="card horizontal">
-                      <div class="card-image">
-                        <img src="http://lorempixel.com/100/190/nature/6">
-                      </div>
-                      <div class="card-stacked">
-                        <div class="card-content">
-                          <p class="flow-text">I am a very simple card. I am good at containing small bits of information.</p>
-                        </div>
-                        <div class="card-action">
-                          <a href="#">This is a link</a>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                
-                <div class="col s12 l4">
-                    <div class="card horizontal">
-                      <div class="card-image">
-                        <img src="http://lorempixel.com/100/190/nature/6">
-                      </div>
-                      <div class="card-stacked">
-                        <div class="card-content">
-                          <p class="flow-text">I am a very simple card. I am good at containing small bits of information.</p>
-                        </div>
-                        <div class="card-action">
-                          <a href="#">This is a link</a>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            
+            <%
+            Vector <Post> p = new Post().obtenerPost();
+            for(Post post:p){
+                if(post.getRutaImagen()==null){%>
+                    <jsp:include page="tarjetaBasica.jsp" flush="true">
+                        <jsp:param name="texto" value='<%=post.getTexto()%>'/>
+                        <jsp:param name="titulo" value='<%=post.getTitulo()%>'/>
+                        <jsp:param name="rutaD" value='<%=post.getRutaDocumento()%>'/>
+                        <jsp:param name="fecha" value='<%=post.getFecha()%>'/>
+                    </jsp:include>
+                <%}
+                else{%>
+                    <jsp:include page="tarjetaImagen.jsp" flush="true">
+                        <jsp:param name="texto" value='<%=post.getTexto()%>'/>
+                        <jsp:param name="titulo" value='<%=post.getTitulo()%>'/>
+                        <jsp:param name="rutaD" value='<%=post.getRutaDocumento()%>'/>
+                        <jsp:param name="rutaI" value='<%=post.getRutaImagen()%>'/>
+                        <jsp:param name="fecha" value='<%=post.getFecha()%>'/>
+                    </jsp:include>
+                <%}%>
+            <%}%>
         </div>
+        <br>
+        <br>
+        <jsp:include page="footer.jsp" flush="true"/>
     </body>
 </html>

@@ -5,8 +5,8 @@
  */
 package Servlets;
 
-import Clases.Usuario;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,9 +15,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author TarzanBoyCraft
+ * @author derda
  */
-public class IniciarSesion extends HttpServlet {
+public class CerrarSesion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,20 +30,9 @@ public class IniciarSesion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Usuario usu = new Usuario().login(request.getParameter("email"), request.getParameter("password"));
-        if(usu == null){
-            response.sendRedirect("noentro.jsp");
-        }else{
-            HttpSession sesion =  request.getSession();
-            sesion.setAttribute("Usuario", usu);
-            if(usu.getRol()==0){
-                response.sendRedirect("paginas_admin/inicio.jsp");
-            }
-            else if(usu.getRol()==1){
-                response.sendRedirect("paginas_usuario/inicio.jsp");
-            }
-        }
-        
+        HttpSession sesion = request.getSession();
+        sesion.invalidate();
+        response.sendRedirect("index.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
