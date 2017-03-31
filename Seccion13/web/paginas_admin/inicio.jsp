@@ -1,10 +1,11 @@
-<%-- 
-    Document   : inicio
-    Created on : 16-mar-2017, 0:37:04
-    Author     : Fernando
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%HttpSession sesion = request.getSession();
+if(sesion.getAttribute("usuario") == null){
+    response.sendRedirect("../index.jsp");
+}else{
+
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,3 +77,4 @@
         <jsp:include page="footer.jsp" flush="true"/>
     </body>
 </html>
+<%}%>

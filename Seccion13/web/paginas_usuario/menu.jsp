@@ -1,5 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%HttpSession sesion = request.getSession();%>
+<%HttpSession sesion = request.getSession();
+if(sesion.getAttribute("usuario") == null){
+    response.sendRedirect("../index.jsp");
+}else{
+
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -61,3 +66,4 @@
         </nav>
     </body>
 </html>
+<%}%>

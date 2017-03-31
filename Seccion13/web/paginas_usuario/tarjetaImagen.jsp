@@ -1,9 +1,3 @@
-<%-- 
-    Document   : tarjetaImagen
-    Created on : 31/03/2017, 03:13:46 AM
-    Author     : derda
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +19,7 @@
                 <div class="card-content">
                     <p><%=request.getParameter("texto")%></p>
                 </div>
-                <%if(request.getParameter("texto").equalsIgnoreCase("")){
+                <%if(request.getParameter("rutaD").equalsIgnoreCase("null")){
                 }else{%>
                     <div class="card-action #eeeeee grey lighten-3">
                         <%=request.getParameter("rutaD")%>&nbsp;&nbsp;
