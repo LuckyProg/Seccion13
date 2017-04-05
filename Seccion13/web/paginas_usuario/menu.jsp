@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%HttpSession sesion = request.getSession();
-if(sesion.getAttribute("usuario") == null){
+if(sesion.getAttribute("Usuario") == null){
     response.sendRedirect("../index.jsp");
 }else{
 
