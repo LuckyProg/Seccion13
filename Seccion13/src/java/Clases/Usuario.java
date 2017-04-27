@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class Usuario {
@@ -80,7 +81,49 @@ public class Usuario {
      */
     public Usuario(){}
     
-    
+    public ArrayList<Usuario> mostrarUsuario(){
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+        Connection c = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Usuario usu = null;
+        
+        try{
+            c = new Conexion().getConexion();
+            
+            String sql = "SELECT * FROM usuario where rol = ?";
+            ps = c.prepareStatement(sql);
+            ps.setInt(1, 1);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){             
+                usu = new Usuario(rs.getInt("id_usuario"),
+                                         rs.getString("nombre"),
+                                         rs.getString("apaterno"),
+                                         rs.getString("amaterno"),
+                                         rs.getString("instlabo"),
+                                         rs.getInt("no_empleado"),
+                                         rs.getInt("seccionsindi"),
+                                         rs.getString("unidad_ads"),
+                                         rs.getString("correo"),
+                                         rs.getString("pass"),
+                                         rs.getInt("rol")); 
+                usuarios.add(usu);
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            usu = null;
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                c.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return usuarios;
+    }
     /**
      * 
      * @return true si hay un registro exitoso
@@ -94,15 +137,15 @@ public class Usuario {
             
             String sql = "INSERT INTO usuario (nombre, apaterno, amaterno, instlabo, no_empleado, seccionsindi, unidad_ads, correo, pass, rol) values (?,?,?,?,?,?,?,?,?,?)";
             ps = c.prepareStatement(sql);
-            ps.setString(1, this.nombre);
-            ps.setString(2, this.ap);
-            ps.setString(3, this.am);
-            ps.setString(4, this.inst);
+            ps.setNString(1, this.nombre);
+            ps.setNString(2, this.ap);
+            ps.setNString(3, this.am);
+            ps.setNString(4, this.inst);
             ps.setInt(5, this.no_empleado);
             ps.setInt(6, this.seccion_sindi);
-            ps.setString(7, this.unidad_ads);
-            ps.setString(8, this.correo);
-            ps.setString(9, this.pass);
+            ps.setNString(7, this.unidad_ads);
+            ps.setNString(8, this.correo);
+            ps.setNString(9, this.pass);
             ps.setInt(10, this.rol);
             ps.executeUpdate();
             return true;

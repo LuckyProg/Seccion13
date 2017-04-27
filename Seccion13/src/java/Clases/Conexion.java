@@ -10,7 +10,7 @@ public class Conexion {
     public Connection getConexion(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://localhost:3306/seccion13";
+            String url="jdbc:mysql://localhost:3306/seccion13?useUnicode=true&characterEncoding=ISO-8859-1";
             String usuario="root";
             String clave="n0m3l0";
             return DriverManager.getConnection(url,usuario,clave);

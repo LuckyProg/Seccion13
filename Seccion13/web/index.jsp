@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <%HttpSession sesion = request.getSession();%>
 <!DOCTYPE html>
 <html>
@@ -20,9 +20,9 @@
                 <a href="#" class="brand-logo center " style="margin-bottom: 100px;">
                     <div style="margin-top: 10px;"class="valign-wrapper">
                         <img style="max-height: 100px;" class="circle responsive-img" src="IMG/escudo1.jpg" alt=""/>
-                        <h4 class="valign">&nbsp;&nbsp;&nbsp;SecciÃ³n 13 "Rama MÃ©dica"&nbsp;&nbsp;&nbsp;
+                        <h4 class="valign">&nbsp;&nbsp;&nbsp;Sección 13 "Rama Médica"&nbsp;&nbsp;&nbsp;
                             <br>
-                            <span class="light grey-text text-lighten-3 valign" style="font-size:20px;">Dr. Jaime PatiÃ±o Gutierrez</span>
+                            <span class="light grey-text text-lighten-3 valign" style="font-size:20px;">Dr. Jaime Patiño Gutierrez</span>
 			</h4>
                         <img style="max-width: 100px;" class=" circle responsive-img" src="IMG/escudo2.jpg" alt=""/>
                     </div>  
@@ -48,9 +48,9 @@
             <div class="nav-content #d32f2f red darken-1" style="margin-top: 55px;">
               <ul class="tabs tabs-transparent">
                   <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Para visualizar el contenido debes Iniciar Sesion."<%}%><%else{%>href="inicio.jsp"<%}%>>Inicio</a></li>
-                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Si aÃºn no cuentas con una sesiÃ³n puedes Registrarte."<%}%><%else{%>href="inicio.jsp"<%}%>>Directorio</a></li>
+                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Si aún no cuentas con una sesión puedes Registrarte."<%}%><%else{%>href="inicio.jsp"<%}%>>Directorio</a></li>
                 <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Prueba Iniciando Sesion o bien Registrandote."<%}%><%else{%>href="inicio.jsp"<%}%>">Carteras</a></li>
-                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Debes Iniciar SesiÃ³n."<%}%><%else{%>href="inicio.jsp"<%}%>>Galeria</a></li>
+                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Debes Iniciar Sesión."<%}%><%else{%>href="inicio.jsp"<%}%>>Galeria</a></li>
               </ul>
             </div>
             <script>
@@ -77,16 +77,16 @@
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-			    <h5 class="white-text">Algo mÃ¡s...</h5>
+			    <h5 class="white-text">Algo más...</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">> Iniciar SesiÃ³n</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">> Iniciar Sesión</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">> Registrarse</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">> Acerca de nosotros</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">> TÃ©rminos de privacidad</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">> Términos de privacidad</a></li>
                 </ul>
               </div>
               <div class="col l4 offset-l2 s12">
-				<h5 class="white-text">SÃ­guenos...</h5>
+				<h5 class="white-text">Síguenos...</h5>
                 <p class="grey-text text-lighten-4"><br>
 					<a target="_blank" title="find us on Facebook" href="https://www.facebook.com/www.alternativa13.infored.mx/">
 						<i class="fa fa-facebook" aria-hidden="true" style="font-size:45px;color:#fff;"></i>
@@ -100,8 +100,8 @@
           </div>
           <div class="footer-copyright #b71c1c red darken-4">
             <div class="container #b71c1c red darken-4">
-            Â© 2017 SecciÃ³n 13 "Rama MÃ©dica"
-            <a class="grey-text text-lighten-4 right" href="#!">Made by Â°_Â° LuckyProg</a>
+            © 2017 Sección 13 "Rama Médica"
+            <a class="grey-text text-lighten-4 right" href="#!">Made by °_° LuckyProg</a>
             </div>
           </div>
         </footer>
@@ -109,7 +109,7 @@
         <!-- Modal Structure -->
         <div id="modal1" class="modal col s12 m2" style="border-radius:15px;">
               <div class="modal-content" style="margin-top:-30px;margin-bottom:-40px;">
-                &nbsp;&nbsp;&nbsp;<h4><i class="medium material-icons" style="position:relative;top:10px;">perm_identity</i>&nbsp;Iniciar SesiÃ³n</h4>
+                &nbsp;&nbsp;&nbsp;<h4><i class="medium material-icons" style="position:relative;top:10px;">perm_identity</i>&nbsp;Iniciar Sesión</h4>
                 <br>
                 <div class="row">
                       <form class="col s12" name="login" method="post" action="IniciarSesion" >
@@ -141,7 +141,7 @@
                 &nbsp;&nbsp;<h4><i class="medium material-icons" style="position:relative;top:10px;">perm_identity</i>&nbsp;Registrarse</h4>
                 <br>
                 <div class="row">
-                      <form class="col s12" name="registro" method="post" action="RegistrarUsuario">
+                    <form class="col s12" name="registro" method="post" action="RegistrarUsuario" accept-charset="ISO-8859-1">
                         <div class="row">
                               <div class="input-field col s12 l6">
                                 <input id="first_name" name="nombre" type="text" class="validate">
@@ -159,11 +159,11 @@
                           <div class="row">
                               <div class="input-field col s12">
                                 <input id="last_name" name="institucion" type="text" class="validate">
-                                <label for="last_name">InstituciÃ³n</label>
+                                <label for="last_name">Institución</label>
                               </div>
                               <div class="input-field col s12">
                                 <input id="last_name" name="unidad_ads" type="text" class="validate">
-                                <label for="last_name">Unidad de AdscripciÃ³n</label>
+                                <label for="last_name">Unidad de Adscripción</label>
                               </div>
                               <div class="input-field col s12">
                                 <input id="last_name" name="no_empleado" type="number" class="validate">
@@ -213,7 +213,7 @@
                                 <option value="3">Option 3</option>
                                 <option value="3">Option 3</option>
                               </select>
-                              <label>SecciÃ³n Sindical</label>
+                              <label>Sección Sindical</label>
                             </div>
                           </div>
                         <div class="row">

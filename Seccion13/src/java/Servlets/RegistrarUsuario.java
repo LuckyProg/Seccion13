@@ -41,7 +41,7 @@ public class RegistrarUsuario extends HttpServlet {
                                       request.getParameter("password"),
                                       1);
             if(usu.registrarUsuario()){
-                response.sendRedirect("siregistro.jsp");
+                response.sendRedirect("index.jsp");
             }else{
             response.sendRedirect("noregistro.jsp");
             }

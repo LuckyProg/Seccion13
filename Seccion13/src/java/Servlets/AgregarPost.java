@@ -28,7 +28,9 @@ public class AgregarPost extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            String ext="";
             try{
+                ext = request.getParameter("ext");
                 Part archi = request.getPart("imagen");
                 InputStream is = null;
                 if(archi !=null && archi.getSize()>0){
@@ -63,13 +65,15 @@ public class AgregarPost extends HttpServlet {
             try{
                 Part archi2 = request.getPart("documento");
                 String fileC = archi2.getContentType();
+                System.out.println(archi2.getName());
+                System.out.println(archi2.getContentType());
                 InputStream doc = null;
                 if(archi2 !=null && archi2.getSize()>0){
 
                     doc = archi2.getInputStream();
                     //BufferedInputStream bufin = new BufferedInputStream(doc);
-                    System.out.println(fileC);
-                    File documento = new File("C:\\Users\\derda\\Desktop\\hola.txt");
+                    //System.out.println(fileC);
+                    File documento = new File("C:\\Users\\derda\\Desktop\\hola."+ext);
                     OutputStream os = new FileOutputStream(documento);
 
                     byte[] buffer = new byte[1024];
