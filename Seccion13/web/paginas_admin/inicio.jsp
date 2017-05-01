@@ -48,10 +48,11 @@ if(sesion.getAttribute("Usuario") == null){
                             <div class="file-field input-field">
                                 <div class="btn">
                                   <span>Imagen</span>
-                                  <input type="file" name="imagen">
+                                  <input type="file" name="imagen" id="f2">
                                 </div>
                                 <div class="file-path-wrapper">
                                   <input class="file-path validate" type="text">
+                                  <input type="hidden" id="ext" name="ext">
                                 </div>
                             </div>
                         </div>
@@ -63,7 +64,7 @@ if(sesion.getAttribute("Usuario") == null){
                                 </div>
                                 <div class="file-path-wrapper">
                                   <input class="file-path validate" type="text">
-                                  <input type="hidden" id="ext" name="ext">
+                                  <input type="hidden" id="extd" name="extd">
                                 </div>
                             </div>
                         </div>
@@ -78,8 +79,13 @@ if(sesion.getAttribute("Usuario") == null){
         <jsp:include page="footer.jsp" flush="true"/>
         <script type="text/javascript">
             var fl = document.getElementById('f');
+            var f2 = document.getElementById('f2');
 
             fl.onchange = function(e){ 
+                var extd = this.value.match(/\.(.+)$/)[1];
+                document.getElementById('extd').value = extd;
+            }
+            f2.onchange = function(e){ 
                 var ext = this.value.match(/\.(.+)$/)[1];
                 document.getElementById('ext').value = ext;
             }

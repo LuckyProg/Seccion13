@@ -19,16 +19,16 @@ public class Post {
     
     private String texto;
     private String titulo;
-    private String rutaImagen;
-    private String rutaDocumento;
+    private String idImagen;
+    private String idDocumento;
     private String fecha;
     
-    public Post(String texto, String titulo, String rutaImagen, String rutaDocumento){
+    public Post(String texto, String titulo, String idImagen, String idDocumento){
         
         this.texto = texto;
         this.titulo = titulo;
-        this.rutaImagen = rutaImagen;
-        this.rutaDocumento = rutaDocumento;
+        this.idImagen = idImagen;
+        this.idDocumento = idDocumento;
         
     }
     
@@ -41,12 +41,12 @@ public class Post {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "INSERT INTO post (texto, titulo, rutaImagen, rutaDocumento, fecha) values (?,?,?,?,now())";
+            String sql = "INSERT INTO post (texto, titulo, id_img, id_doc, fecha) values (?,?,?,?,now())";
             ps = c.prepareStatement(sql);
             ps.setString(1, this.texto);
-            ps.setString(1, this.titulo);
-            ps.setString(1, this.rutaImagen);
-            ps.setString(1, this.rutaDocumento);
+            ps.setString(2, this.titulo);
+            ps.setString(3, this.idImagen);
+            ps.setString(4, this.idDocumento);
             ps.executeUpdate();
             return true;            
 
@@ -82,8 +82,8 @@ public class Post {
                 postit = new Post();
                 postit.setTexto(rs.getString("texto"));
                 postit.setTitulo(rs.getString("titulo"));
-                postit.setRutaImagen(rs.getString("rutaImagen"));
-                postit.setRutaDocumento(rs.getString("rutaDocumento"));
+                postit.setRutaImagen(rs.getString("id_img"));
+                postit.setRutaDocumento(rs.getString("id_doc"));
                 postit.setFecha(rs.getString("fecha"));
                 post.add(postit);
             }
@@ -125,19 +125,19 @@ public class Post {
     }
 
     public String getRutaImagen() {
-        return rutaImagen;
+        return idImagen;
     }
 
     public void setRutaImagen(String rutaImagen) {
-        this.rutaImagen = rutaImagen;
+        this.idImagen = rutaImagen;
     }
 
     public String getRutaDocumento() {
-        return rutaDocumento;
+        return idDocumento;
     }
 
     public void setRutaDocumento(String rutaDocumento) {
-        this.rutaDocumento = rutaDocumento;
+        this.idDocumento = rutaDocumento;
     }
 
     public String getFecha() {

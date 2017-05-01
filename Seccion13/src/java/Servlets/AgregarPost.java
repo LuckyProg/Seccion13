@@ -5,6 +5,8 @@
  */
 package Servlets;
 
+import Clases.Documento;
+import Clases.Imagen;
 import Clases.Post;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -29,32 +31,20 @@ public class AgregarPost extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             String ext="";
+            String extd="";
+            InputStream is = null;
+            InputStream doc = null;
+            boolean i = false;
+            boolean d = false;
+            Part archi = null;
+            Part archi2 = null;
             try{
                 ext = request.getParameter("ext");
-                Part archi = request.getPart("imagen");
-                InputStream is = null;
+                archi = request.getPart("imagen");
+                is = null;
                 if(archi !=null && archi.getSize()>0){
-
                     is = archi.getInputStream();
-                    //BufferedInputStream bufin = new BufferedInputStream(is);
-                    File imagen = new File("C:\\Users\\derda\\Desktop\\imagensita.jpg");
-                    if (imagen.createNewFile()){
-                        System.out.println("File is created!");
-                      }else{
-                        System.out.println("File already exists.");
-                      }
-                    FileOutputStream os = new FileOutputStream(imagen);
-
-                    byte[] buffer = new byte[1024];
-                    int bytesRead;
-                    //read from is to buffer
-                    while((bytesRead = is.read(buffer)) !=-1){
-                        os.write(buffer, 0, bytesRead);
-                    }
-                    is.close();
-                    //flush OutputStream to write any buffered data to file
-                    os.flush();
-                    os.close();
+                    i = true;
                 }
                 
             }catch (IOException e) {
@@ -63,31 +53,29 @@ public class AgregarPost extends HttpServlet {
                 response.sendRedirect("No lo guarda");
             }
             try{
-                Part archi2 = request.getPart("documento");
-                String fileC = archi2.getContentType();
-                System.out.println(archi2.getName());
-                System.out.println(archi2.getContentType());
-                InputStream doc = null;
+                extd = request.getParameter("extd");
+                archi2 = request.getPart("documento");
                 if(archi2 !=null && archi2.getSize()>0){
-
                     doc = archi2.getInputStream();
-                    //BufferedInputStream bufin = new BufferedInputStream(doc);
-                    //System.out.println(fileC);
-                    File documento = new File("C:\\Users\\derda\\Desktop\\hola."+ext);
-                    OutputStream os = new FileOutputStream(documento);
-
-                    byte[] buffer = new byte[1024];
-                    int bytesRead;
-                    //read from is to buffer
-                    while((bytesRead = doc.read(buffer)) !=-1){
-                        os.write(buffer, 0, bytesRead);
-                    }
-                    doc.close();
-                    //flush OutputStream to write any buffered data to file
-                    os.flush();
-                    os.close();
+                    d = true;
                 }
             }catch (IOException e) {
+                e.printStackTrace();
+            }
+            try{
+                if(!i&&!d){
+                    new Post(request.getParameter("texto"), request.getParameter("titulo"), null, null).agregarPost();
+                }
+                if(i&&!d){
+                    new Post(request.getParameter("texto"), request.getParameter("titulo"), new Imagen(is, ext, archi.getSize()).guardarImagen(), null).agregarPost();
+                }
+                if(!i&&d){
+                    new Post(request.getParameter("texto"), request.getParameter("titulo"), null, new Documento(doc, extd, archi2.getSize()).guardarDocumento()).agregarPost();
+                }
+                if(i&&d){
+                    new Post(request.getParameter("texto"), request.getParameter("titulo"), new Imagen(is, ext, archi.getSize()).guardarImagen(), new Documento(doc, extd, archi2.getSize()).guardarDocumento()).agregarPost();
+                }
+            }catch(Exception e){
                 e.printStackTrace();
             }
             
