@@ -1,5 +1,9 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="Clases.Imagen"%>
+<%@page import="Clases.Imagen"%>
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
-<%HttpSession sesion = request.getSession();%>
+<%HttpSession sesion = request.getSession();
+String b64 = null;%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -63,10 +67,29 @@
         
         <!-- Slider -->
         <div class="carousel carousel-slider">
-            <a class="carousel-item" href="#one!"><img src="IMG/img2.jpg" alt=""/></a>
-            <a class="carousel-item" href="#two!"><img src="IMG/img3.jpg" alt=""/></a>
-            <a class="carousel-item" href="#three!"><img src="IMG/img4.jpg" alt=""/></a>
-            <a class="carousel-item" href="#four!"><img src="IMG/img5.jpg" alt=""/></a>
+            <%ArrayList<Imagen> i = new Imagen().mostrarImagenes2();
+            switch(i.size()){
+                case 0:
+                break;
+                case 1:
+            b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(i.get(0).getImag());%>
+            <a class="carousel-item" href="#one!"><img src="data:image/jpg;base64, <%=b64%>" alt=""/></a>
+            <%
+                break;
+                case 2:
+            b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(i.get(1).getImag());%>
+            <a class="carousel-item" href="#two!"><img src="data:image/jpg;base64, <%=b64%>" alt=""/></a>
+            <%
+                break;
+                case 3:
+            b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(i.get(1).getImag());%>
+            <a class="carousel-item" href="#three!"><img src="data:image/jpg;base64, <%=b64%>" alt=""/></a>
+            <%
+                break;
+                case 4:
+            b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(i.get(1).getImag());%>
+            <a class="carousel-item" href="#four!"><img src="data:image/jpg;base64, <%=b64%>" alt=""/></a>
+            <%break;}%>
         </div>
         <script>
             $('.carousel.carousel-slider').carousel({fullWidth: true});

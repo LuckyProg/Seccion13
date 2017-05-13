@@ -28,7 +28,7 @@ if(sesion.getAttribute("Usuario") == null){
                     <jsp:include page="tarjetaBasica.jsp" flush="true">
                         <jsp:param name="texto" value='<%=post.getTexto()%>'/>
                         <jsp:param name="titulo" value='<%=post.getTitulo()%>'/>
-                        <jsp:param name="rutaD" value='<%=post.getRutaDocumento()%>'/>
+                        <jsp:param name="rutaD" value='<%=(post.getRutaDocumento()==null)?"0":post.getRutaDocumento()%>'/>
                         <jsp:param name="fecha" value='<%=post.getFecha()%>'/>
                     </jsp:include>
                 <%}

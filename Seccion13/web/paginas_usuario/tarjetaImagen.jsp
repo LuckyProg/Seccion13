@@ -13,19 +13,26 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
         <title>Tarjeta con Imagen</title>
+         <style type="text/css">
+            imgg{
+                position:relative; 
+                width:auto; 
+                max-height:200px;
+            }
+        </style>
     </head>
     <body>
         <div class="col s12 m7">
-            <div class="card">
-                <div class="card-image">
-                    <center><img src="data:image/jpg;base64, <%=b64%>"></center>
+            <div class="card" style="background:rgba(255,255,255,0.5);">
+                <div class="card-image" >
+                    <center><img src="data:image/jpg;base64, <%=b64%>" style=""></center>
                     <span class="card-title" style="background: #d32f2f;"><%=request.getParameter("titulo")%>&nbsp;(<%=request.getParameter("fecha")%>)</span>
                 </div>
-                <div class="card-content">
+                <div class="card-content" style="background:rgb(255,255,255);">
                     <p><%=request.getParameter("texto")%></p>
                 </div>
-                <%if(request.getParameter("rutaD").equalsIgnoreCase("null")){
-                }else{%>
+                    <%if(request.getParameter("rutaD").equalsIgnoreCase("0")){%>
+                <%}else{%>
                     <div class="card-action #eeeeee grey lighten-3">
                         <%String nomd = request.getParameter("titulo") + request.getParameter("fecha") + "." + new Documento().obtenerExt(request.getParameter("rutaD"));%>
                         <%=nomd%>&nbsp;&nbsp;

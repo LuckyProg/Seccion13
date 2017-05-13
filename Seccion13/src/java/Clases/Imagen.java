@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Imagen {
     
     private String id_img;
     private InputStream img;
+    private byte[] imag;
     private String ext;
     private long len;
     
@@ -33,6 +35,11 @@ public class Imagen {
         this.ext = ext;
         this.len = len;
         
+    }
+    
+    public Imagen(String id_img, byte[] imag){
+        this.id_img = id_img;
+        this.imag = imag;
     }
     
     public String guardarImagen(){
@@ -155,5 +162,95 @@ public class Imagen {
         }
         return ext;
     }
+    
+    public ArrayList<Imagen> mostrarImagenes(){
+        ArrayList<Imagen> imgs = new ArrayList<Imagen>();
+        Connection c = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Imagen img = null;
+        
+        try{
+            c = new Conexion().getConexion();
+            
+            String sql = "SELECT id_img, img FROM imagenes order by id_img DESC";
+            ps = c.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){  
+                Blob blob = rs.getBlob("img");
+                img = new Imagen(rs.getNString("id_img"), blob.getBytes(1, (int)blob.length())); 
+                imgs.add(img);
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            img = null;
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                c.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return imgs;
+    }
+    
+    public ArrayList<Imagen> mostrarImagenes2(){
+        ArrayList<Imagen> imgs = new ArrayList<Imagen>();
+        Connection c = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Imagen img = null;
+        
+        try{
+            c = new Conexion().getConexion();
+            
+            String sql = "SELECT id_img, img FROM imagenes order by id_img DESC LIMIT 4";
+            ps = c.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){  
+                Blob blob = rs.getBlob("img");
+                img = new Imagen(rs.getNString("id_img"), blob.getBytes(1, (int)blob.length())); 
+                imgs.add(img);
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            img = null;
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                c.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return imgs;
+    }
+
+    public String getId_img() {
+        return id_img;
+    }
+
+    public InputStream getImg() {
+        return img;
+    }
+
+    public byte[] getImag() {
+        return imag;
+    }
+
+    public String getExt() {
+        return ext;
+    }
+
+    public long getLen() {
+        return len;
+    }
+    
+    
     
 }
