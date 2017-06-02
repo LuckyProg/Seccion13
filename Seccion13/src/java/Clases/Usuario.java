@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 
 
 public class Usuario {
@@ -218,6 +220,40 @@ public class Usuario {
         
     }
     
+    public InternetAddress[] getCorreos() throws AddressException {
+        
+        Connection c = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<InternetAddress> destinos = new ArrayList<InternetAddress>();
+        
+        try{
+            c = new Conexion().getConexion();
+            
+            String sql = "SELECT correo FROM usuario where rol = 1";
+            ps = c.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){             
+                destinos.add(new InternetAddress(rs.getString("correo")));
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            destinos = null;
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                c.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        InternetAddress[] daniela = destinos.toArray(new InternetAddress[destinos.size()]);
+        return daniela;
+        
+    }
+    
     //GETTERS
     public int getId_usuario() {
         return id_usuario;
@@ -262,11 +298,5 @@ public class Usuario {
     public int getRol() {
         return rol;
     }
-    
-    
-    
-    
-    
-    
     
 }

@@ -5,9 +5,11 @@
  */
 package Servlets;
 
+import Clases.Correo;
 import Clases.Documento;
 import Clases.Imagen;
 import Clases.Post;
+import Clases.Usuario;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -75,6 +77,7 @@ public class AgregarPost extends HttpServlet {
                 if(i&&d){
                     new Post(request.getParameter("texto"), request.getParameter("titulo"), new Imagen(is, ext, archi.getSize()).guardarImagen(), new Documento(doc, extd, archi2.getSize()).guardarDocumento()).agregarPost();
                 }
+                new Correo().enviarCorreo(new Usuario().getCorreos(), request.getParameter("titulo"), request.getParameter("texto"));
             }catch(Exception e){
                 e.printStackTrace();
             }
