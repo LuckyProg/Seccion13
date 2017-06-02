@@ -93,7 +93,17 @@ public class Usuario {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "SELECT * FROM usuario where rol = ?";
+            String sql = "SELECT id_usuario,
+                                AES_DECRYPT(nombre, 'cheng') as nombre,
+                                AES_DECRYPT(apaterno, 'cheng') as apaterno,
+                                AES_DECRYPT(amaterno, 'cheng') as amaterno,
+                                AES_DECRYPT(instlabo, 'cheng') as instlabo,
+                                AES_DECRYPT(no_empleado, 'cheng') as no_empleado,
+                                AES_DECRYPT(seccionsindi, 'cheng') as seccionsindi,
+                                AES_DECRYPT(unidad_ads, 'cheng') as unidad_ads,
+                                AES_DECRYPT(correo, 'cheng') as correo,
+                                AES_DECRYPT(pass, 'cheng') as pass,
+                                rol FROM usuario where rol = ?";
             ps = c.prepareStatement(sql);
             ps.setInt(1, 1);
             rs = ps.executeQuery();
@@ -137,7 +147,24 @@ public class Usuario {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "INSERT INTO usuario (nombre, apaterno, amaterno, instlabo, no_empleado, seccionsindi, unidad_ads, correo, pass, rol) values (?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO usuario (nombre,
+                                                apaterno,
+                                                amaterno,
+                                                instlabo,
+                                                no_empleado, 
+                                                seccionsindi, 
+                                                unidad_ads,
+                                                correo, 
+                                                pass, 
+                 rol) values (  AES_ENCRYPT(?, 'cheng'),
+                                AES_ENCRYPT(?, 'cheng'),
+                                AES_ENCRYPT(?, 'cheng'),
+                                AES_ENCRYPT(?, 'cheng'),
+                                AES_ENCRYPT(?, 'cheng'),
+                                AES_ENCRYPT(?, 'cheng'),
+                                AES_ENCRYPT(?, 'cheng'),
+                                AES_ENCRYPT(?, 'cheng'),
+                                AES_ENCRYPT(?, 'cheng'),?)";
             ps = c.prepareStatement(sql);
             ps.setNString(1, this.nombre);
             ps.setNString(2, this.ap);
@@ -184,7 +211,17 @@ public class Usuario {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "SELECT * FROM usuario where correo = ? and pass = ?";
+            String sql = "SELECT id_usuario,
+                                AES_DECRYPT(nombre, 'cheng') as nombre,
+                                AES_DECRYPT(apaterno, 'cheng') as apaterno,
+                                AES_DECRYPT(amaterno, 'cheng') as amaterno,
+                                AES_DECRYPT(instlabo, 'cheng') as instlabo,
+                                AES_DECRYPT(no_empleado, 'cheng') as no_empleado,
+                                AES_DECRYPT(seccionsindi, 'cheng') as seccionsindi,
+                                AES_DECRYPT(unidad_ads, 'cheng') as unidad_ads,
+                                AES_DECRYPT(correo, 'cheng') as correo,
+                                AES_DECRYPT(pass, 'cheng') as pass,
+                                rol FROM usuario where correo = ? and pass = ?";
             ps = c.prepareStatement(sql);
             ps.setString(1, correo);
             ps.setString(2, pass);
@@ -230,7 +267,7 @@ public class Usuario {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "SELECT correo FROM usuario where rol = 1";
+            String sql = "SELECT AES_DECRYPT(correo,'cheng') as correo FROM usuario where rol = 1";
             ps = c.prepareStatement(sql);
             rs = ps.executeQuery();
             
