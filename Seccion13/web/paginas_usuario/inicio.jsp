@@ -17,7 +17,9 @@ if(sesion.getAttribute("Usuario") == null){
         <title>JSP Page</title>
     </head>
     <body class="#e57373 red lighten-2">
-        <jsp:include page="menu.jsp" flush="true"/>
+        <jsp:include page="menu.jsp" flush="true">
+            <jsp:param name="pos" value='1'/>
+        </jsp:include>
         <br>
         <br>
         <div class="container">

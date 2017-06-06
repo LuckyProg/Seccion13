@@ -32,7 +32,7 @@ public class IniciarSesion extends HttpServlet {
             throws ServletException, IOException {
         Usuario usu = new Usuario().login(request.getParameter("email"), request.getParameter("password"));
         if(usu == null){
-            response.sendRedirect("noentro.jsp");
+            response.sendRedirect("index.jsp?bjkdfhs2u2hd3kj2d3bsfhdshfdsbfd8d7dskjff32jd0972hdsfhdsavfdbfdbsfnds892bafudhfjfhdisf=hf8hans9djna9900an");
         }else{
             HttpSession sesion =  request.getSession();
             sesion.setAttribute("Usuario", usu);

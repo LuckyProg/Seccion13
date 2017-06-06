@@ -36,7 +36,9 @@ if(sesion.getAttribute("Usuario") == null){
     </head>
     <%ArrayList<Imagen> i = new Imagen().mostrarImagenes();%>
     <body class="#e57373 red lighten-2" onclick="clic()">
-        <jsp:include page="menu.jsp" flush="true"/>
+        <jsp:include page="menu.jsp" flush="true">
+            <jsp:param name="pos" value='5'/>
+        </jsp:include>
         <br>
         <div class="row">
         <%for(Imagen img:i){

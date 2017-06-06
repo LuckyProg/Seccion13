@@ -15,7 +15,9 @@ if(sesion.getAttribute("Usuario") == null){
         <title>JSP Page</title>
     </head>
     <body class="#e57373 red lighten-2">
-        <jsp:include page="menu.jsp" flush="true"/>
+        <jsp:include page="menu.jsp" flush="true">
+            <jsp:param name="pos" value='2'/>
+        </jsp:include>
         <br>
         <br>
         <div class="row container" style="padding:25px; border-radius: 5px; margin-top: -10px; background: rgba(255,255,255,.85); text-align: justify; font-size: 20px;">

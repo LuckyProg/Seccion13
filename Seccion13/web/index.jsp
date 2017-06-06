@@ -14,6 +14,8 @@ String b64 = null;%>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="https://use.fontawesome.com/683092cb82.js"></script>
+        <script src="sweetalert-master/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="sweetalert-master/dist/sweetalert.css">
         <title>Seccion13</title>
     </head>
     <body class="#d32f2f red darken-2">
@@ -272,6 +274,16 @@ String b64 = null;%>
                       $('.modal').modal();
                 });
         </script>
-                  
+        <%String ses = request.getParameter("bjkdfhs2u2hd3kj2d3bsfhdshfdsbfd8d7dskjff32jd0972hdsfhdsavfdbfdbsfnds892bafudhfjfhdisf") != null ? request.getParameter("bjkdfhs2u2hd3kj2d3bsfhdshfdsbfd8d7dskjff32jd0972hdsfhdsavfdbfdbsfnds892bafudhfjfhdisf"):"no";
+        if(ses.equalsIgnoreCase("hf8hans9djna9900an")){%>
+        <script>
+            swal("Oops!", "Usuario y/o contraseña incorrectos", "error");
+        </script>
+        <%}
+        else if(ses.equalsIgnoreCase("d8n29dns9n0ns72")){%>
+        <script>
+            swal("Ahora puedes iniciar sesión", "El registro ha sido realizado correctamente", "success");
+        </script>
+        <%}%>
 	</body>
 </html>
