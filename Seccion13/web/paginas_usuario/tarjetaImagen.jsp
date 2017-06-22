@@ -31,7 +31,7 @@
                 <div class="card-content" style="background:rgb(255,255,255);">
                     <p><%=request.getParameter("texto")%></p>
                 </div>
-                    <%if(request.getParameter("rutaD").equalsIgnoreCase("0")){%>
+                    <%if(request.getParameter("rutaD").equalsIgnoreCase("NULL")){%>
                 <%}else{%>
                     <div class="card-action #eeeeee grey lighten-3">
                         <%String nomd = request.getParameter("titulo") + request.getParameter("fecha") + "." + new Documento().obtenerExt(request.getParameter("rutaD"));%>

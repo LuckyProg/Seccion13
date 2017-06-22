@@ -41,9 +41,26 @@ if(sesion.getAttribute("Usuario") == null){
         </jsp:include>
         <br>
         <div class="row">
+        <div class="col colls"><center><img src="../IMG/1.JPG" class="materialboxed img" id="01" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/2.jpg" class="materialboxed img" id="02" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/3.jpg" class="materialboxed img" id="03" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/4.jpg" class="materialboxed img" id="04" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/5.jpg" class="materialboxed img" id="05" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/6.jpg" class="materialboxed img" id="06" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/7.jpg" class="materialboxed img" id="07" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/8.jpg" class="materialboxed img" id="08" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/9.jpg" class="materialboxed img" id="09" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/10.jpg" class="materialboxed img" id="010" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/11.jpg" class="materialboxed img" id="011" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/12.jpg" class="materialboxed img" id="012" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/13.jpg" class="materialboxed img" id="013" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/14.jpg" class="materialboxed img" id="014" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/15.jpg" class="materialboxed img" id="015" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/16.jpg" class="materialboxed img" id="016" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <div class="col colls"><center><img src="../IMG/17.jpg" class="materialboxed img" id="017" style="position:relative; width:100%; max-height:inherit;"/></center></div>
         <%for(Imagen img:i){
           b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(img.getImag());%>
-          <div class="col colls"><center><img src="data:image/jpg;base64, <%=b64%>" class="materialboxed imgg" id="<%=img.getId_img()%>" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+          <div class="col colls"><center><img src="data:image/jpg;base64, <%=b64%>" class="materialboxed img" id="<%=img.getId_img()%>" style="position:relative; width:100%; max-height:inherit;"/></center></div>
         <%}%>
         </div>
         <br>

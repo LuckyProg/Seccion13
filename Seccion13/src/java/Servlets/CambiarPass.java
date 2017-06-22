@@ -5,7 +5,9 @@
  */
 package Servlets;
 
+import Clases.Correo;
 import Clases.Usuario;
+import Clases.Vigenere;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,9 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author TarzanBoyCraft
+ * @author derda
  */
-public class RegistrarUsuario extends HttpServlet {
+public class CambiarPass extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,29 +32,11 @@ public class RegistrarUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-            //request.getParameter("institucion");
-            //String institucion = request.getParameter("institucion");
-            //int no_empleado = Integer.parseInt(request.getParameter("no_empleado"));
-            //int seccion_sindi = Integer.parseInt(request.getParameter("seccion_sindi"));
-            //String unidad_ads = request.getParameter("unidad_ads");
-
-            Usuario usu = new Usuario(request.getParameter("nombre"),
-                                      request.getParameter("ap"),
-                                      request.getParameter("am"),
-                                      Integer.parseInt(request.getParameter("telefono")),
-                                      request.getParameter("institucion"),
-                                      Integer.parseInt(request.getParameter("no_empleado")),
-                                      Integer.parseInt(request.getParameter("seccion_sindi")),
-                                      request.getParameter("unidad_ads"),
-                                      request.getParameter("email"),
-                                      request.getParameter("password"),
-                                      1);
-            if(usu.registrarUsuario()){
-                response.sendRedirect("index.jsp");
-            }else{
-            response.sendRedirect("noregistro.jsp");
-            }
+            String correo = new Vigenere().encriptarTextoClaro(request.getParameter("email"),"che");
+            String pass = new Vigenere().encriptarTextoClaro(request.getParameter("password"),"che");
+        new Correo().enviarUnCorreo(request.getParameter("email"), "Solicitud cambio de contraseña.", "Para continuar con el proceso ir a la siguiente liga:\n"
+                + "192.168.1.85:8080/Seccion13/Confirmacion?correo="+request.getParameter("email")+"&pass="+request.getParameter("password"));
+        response.sendRedirect("index.jsp?bjkdfhs2u2hd3kj2d3bsfhdshfdsbfd8d7dskjff32jd0972hdsfhdsavfdbfdbsfnds892bafudhfjfhdisf=687jj8bka9");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

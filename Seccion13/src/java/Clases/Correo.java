@@ -75,6 +75,44 @@ public class Correo {
         return false;
        }
       }
+     
+     public boolean enviarUnCorreo(String destino, String asunto, String mensa){
+        Correo c = new Correo("derdavid2010@gmail.com", "gtyrslfpmdiplinf", destino, asunto, mensa);
+        try{
+            Properties p = new Properties();
+            p.put("mail.smtp.host", "smtp.gmail.com");
+            p.setProperty("mail.smtp.starttls.enable", "true");
+            p.setProperty("mail.smtp.port", "587");
+            p.setProperty("mail.smtp.user", c.getUsuarioCorreo());
+            p.setProperty("mail.smtp.auth", "true");
+
+            Session s =Session.getDefaultInstance(p, null);
+
+            BodyPart texto = new MimeBodyPart();
+            texto.setText(c.getMensaje());
+            MimeMultipart m = new MimeMultipart();
+            m.addBodyPart(texto);
+
+
+            MimeMessage mensaje = new MimeMessage(s);
+            mensaje.setFrom(new InternetAddress(c.getUsuarioCorreo()));
+            //mensaje.addRecipients(Message.RecipientType.TO, destinos);
+            mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(c.getDestino()));
+            mensaje.setSubject(c.getAsunto());
+            mensaje.setContent(m);
+
+            Transport t = s.getTransport("smtp");
+            t.connect(c.getUsuarioCorreo(), c.getPass());
+            t.sendMessage(mensaje, mensaje.getAllRecipients());
+            t.close();
+            return true;
+
+
+       }catch(Exception e){
+        e.printStackTrace();
+        return false;
+       }
+      }
 
     public String getUsuarioCorreo() {
         return usuarioCorreo;

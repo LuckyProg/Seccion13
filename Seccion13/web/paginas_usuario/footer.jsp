@@ -35,10 +35,10 @@
               <div class="col l4 offset-l2 s12">
 				<h5 class="white-text">Síguenos...</h5>
                 <p class="grey-text text-lighten-4"><br>
-					<a target="_blank" title="find us on Facebook" href="https://www.facebook.com/www.alternativa13.infored.mx/">
+					<a target="_blank" title="find us on Facebook" href="https://www.facebook.com/seccion13ramamedica/?ref=br_rs">
 						<i class="fa fa-facebook" aria-hidden="true" style="font-size:45px;color:#fff;"></i>
 					</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a target="_blank" title="follow me on twitter" href="https://twitter.com/alternativa13?lang=es">
+					<a target="_blank" title="follow me on twitter" href="https://twitter.com/seccion13medica">
 						<i class="fa fa-twitter" aria-hidden="true" style="font-size:45px;color:#fff;"></i>
 					</a>
 				</p>

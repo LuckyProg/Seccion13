@@ -22,7 +22,8 @@
               <span class="card-title"><%=request.getParameter("titulo")%>&nbsp;(<%=request.getParameter("fecha")%>)</span>
               <p><%=request.getParameter("texto")%></p>
             </div>
-            <%if(request.getParameter("rutaD").equalsIgnoreCase("null")){
+            <%if(request.getParameter("rutaD").equalsIgnoreCase("0")){
+                
             }else{%>
                 <div class="card-action #eeeeee grey lighten-3">
                         <%String nomd = request.getParameter("titulo") + request.getParameter("fecha") + "." + new Documento().obtenerExt(request.getParameter("rutaD"));%>

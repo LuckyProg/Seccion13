@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author TarzanBoyCraft
+ * @author derda
  */
-public class RegistrarUsuario extends HttpServlet {
+public class RegistrarU extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,20 +30,15 @@ public class RegistrarUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-            //request.getParameter("institucion");
-            //String institucion = request.getParameter("institucion");
-            //int no_empleado = Integer.parseInt(request.getParameter("no_empleado"));
-            //int seccion_sindi = Integer.parseInt(request.getParameter("seccion_sindi"));
-            //String unidad_ads = request.getParameter("unidad_ads");
-
-            Usuario usu = new Usuario(request.getParameter("nombre"),
+            int ss = request.getParameter("seccion_sindi")!=null?Integer.parseInt(request.getParameter("seccion_sindi")):0;
+            int ne = request.getParameter("no_empleado").equalsIgnoreCase("")?0:Integer.parseInt(request.getParameter("no_empleado"));
+           Usuario usu = new Usuario(request.getParameter("nombre"),
                                       request.getParameter("ap"),
                                       request.getParameter("am"),
                                       Integer.parseInt(request.getParameter("telefono")),
                                       request.getParameter("institucion"),
-                                      Integer.parseInt(request.getParameter("no_empleado")),
-                                      Integer.parseInt(request.getParameter("seccion_sindi")),
+                                      ne,
+                                      ss,
                                       request.getParameter("unidad_ads"),
                                       request.getParameter("email"),
                                       request.getParameter("password"),

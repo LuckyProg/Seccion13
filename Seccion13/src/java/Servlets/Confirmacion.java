@@ -6,6 +6,7 @@
 package Servlets;
 
 import Clases.Usuario;
+import Clases.Vigenere;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author TarzanBoyCraft
+ * @author derda
  */
-public class RegistrarUsuario extends HttpServlet {
+public class Confirmacion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,29 +31,13 @@ public class RegistrarUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-            //request.getParameter("institucion");
-            //String institucion = request.getParameter("institucion");
-            //int no_empleado = Integer.parseInt(request.getParameter("no_empleado"));
-            //int seccion_sindi = Integer.parseInt(request.getParameter("seccion_sindi"));
-            //String unidad_ads = request.getParameter("unidad_ads");
-
-            Usuario usu = new Usuario(request.getParameter("nombre"),
-                                      request.getParameter("ap"),
-                                      request.getParameter("am"),
-                                      Integer.parseInt(request.getParameter("telefono")),
-                                      request.getParameter("institucion"),
-                                      Integer.parseInt(request.getParameter("no_empleado")),
-                                      Integer.parseInt(request.getParameter("seccion_sindi")),
-                                      request.getParameter("unidad_ads"),
-                                      request.getParameter("email"),
-                                      request.getParameter("password"),
-                                      1);
-            if(usu.registrarUsuario()){
-                response.sendRedirect("index.jsp");
-            }else{
-            response.sendRedirect("noregistro.jsp");
-            }
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String correo = new Vigenere().desencriptarTextoCifrado(request.getParameter("correo"),"che");
+            String pass = new Vigenere().desencriptarTextoCifrado(request.getParameter("pass"),"che");
+            new Usuario().cambiarPass(request.getParameter("correo"), request.getParameter("pass"));
+            response.sendRedirect("index.jsp?bjkdfhs2u2hd3kj2d3bsfhdshfdsbfd8d7dskjff32jd0972hdsfhdsavfdbfdbsfnds892bafudhfjfhdisf=vyfudghifi8adk");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

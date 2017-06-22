@@ -23,6 +23,7 @@ if(sesion.getAttribute("Usuario") == null){
         <br>
         <br>
         <div class="container">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar post..">
             <%
             Vector <Post> p = new Post().obtenerPost();
             for(Post post:p){
@@ -48,6 +49,23 @@ if(sesion.getAttribute("Usuario") == null){
         <br>
         <br>
         <jsp:include page="footer.jsp" flush="true"/>
+        <script>
+            function myfunction(){
+                var filter = document.getElementById("buscador").value.toUpperCase();
+                var posts = document.getElementsByClassName("card");
+                var title;
+                for(i = 0; i < posts.length; i++){
+                    title = posts[i].getElementsByTagName('span')[0];
+                    
+                    if(title.innerHTML.toUpperCase().indexOf(filter) > -1){
+                        posts[i].style.display= "";
+                    }else{
+                        posts[i].style.display= "none";
+                    }
+                }
+
+            }
+        </script>
     </body>
 </html>
 <%}%>

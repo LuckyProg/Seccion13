@@ -22,7 +22,7 @@ if(sesion.getAttribute("Usuario") == null){
         <div class="container" style="background:#fafafa; margin-top: 50px; margin-bottom: 50px; padding:70px; padding-top: 30px;">
             <h5 class="brand-logo" style="color:#757575;">Usuarios</h5>
             <br><br>
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar por.." title="Type in a name">
             <table id="myTable" >
                 <tr class="header">
                   <th style="width:16.66%;">Nombre</th>
@@ -81,7 +81,7 @@ if(sesion.getAttribute("Usuario") == null){
         <script>
             function myFunction() {
               // Declare variables 
-              var input, filter, table, tr, td, i;
+              var input, filter, table, tr, td, td1, td2, td3, td4, td5, i;
               input = document.getElementById("myInput");
               filter = input.value.toUpperCase();
               table = document.getElementById("myTable");
@@ -90,11 +90,48 @@ if(sesion.getAttribute("Usuario") == null){
               // Loop through all table rows, and hide those who don't match the search query
               for (i = 0; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("td")[0];
+                //td = tr[i].getElementsByTagName("td")[0];
+                 
+                td1 = tr[i].getElementsByTagName("td")[1];
+                td2 = tr[i].getElementsByTagName("td")[2];
+                td3 = tr[i].getElementsByTagName("td")[3];
+                td4 = tr[i].getElementsByTagName("td")[4];
+                td5 = tr[i].getElementsByTagName("td")[5];
                 if (td) {
                   if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
                     tr[i].style.display = "";
                   } else {
-                    tr[i].style.display = "none";
+                    if(td1){
+                        if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                           tr[i].style.display = ""; 
+                        }else{
+                            if(td2){
+                                if (td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = ""; 
+                                }else{
+                                    if(td3){
+                                        if (td3.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                            tr[i].style.display = ""; 
+                                        }else{
+                                            if(td4){
+                                                if (td4.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                                    tr[i].style.display = ""; 
+                                                }else{
+                                                    if(td5){
+                                                        if (td5.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                                            tr[i].style.display = ""; 
+                                                        }else{
+                                                            tr[i].style.display = "none";
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                   }
                 } 
               }

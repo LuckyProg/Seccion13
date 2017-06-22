@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
-        <servlet-name>RegistrarUsuario</servlet-name>
-        <servlet-class>Servlets.RegistrarUsuario</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>IniciarSesion</servlet-name>
         <servlet-class>Servlets.IniciarSesion</servlet-class>
     </servlet>
@@ -20,10 +16,18 @@
         <servlet-name>descargarArchivo</servlet-name>
         <servlet-class>Servlets.descargarArchivo</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>RegistrarUsuario</servlet-name>
-        <url-pattern>/RegistrarUsuario</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>CambiarPass</servlet-name>
+        <servlet-class>Servlets.CambiarPass</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Confirmacion</servlet-name>
+        <servlet-class>Servlets.Confirmacion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrarU</servlet-name>
+        <servlet-class>Servlets.RegistrarU</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IniciarSesion</servlet-name>
         <url-pattern>/IniciarSesion</url-pattern>
@@ -39,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>descargarArchivo</servlet-name>
         <url-pattern>/descargarArchivo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CambiarPass</servlet-name>
+        <url-pattern>/CambiarPass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Confirmacion</servlet-name>
+        <url-pattern>/Confirmacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarU</servlet-name>
+        <url-pattern>/RegistrarU</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

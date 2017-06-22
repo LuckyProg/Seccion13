@@ -17,46 +17,65 @@ String b64 = null;%>
         <script src="sweetalert-master/dist/sweetalert.min.js"></script>
         <link rel="stylesheet" href="sweetalert-master/dist/sweetalert.css">
         <title>Seccion13</title>
+        <style type="text/css">
+            #men ul li a{
+                padding:15px;
+            }
+            .nav-extended{
+                background: #ef5350; /* For browsers that do not support gradients */
+                background: -webkit-linear-gradient(left bottom, #d32f2f, white); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(top right, #d32f2f, white); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(top right, #d32f2f, white); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to top right, #d32f2f, white); /* Standard syntax */
+            }
+            .page-footer{
+              background: #e53935; /* For browsers that do not support gradients */
+              background: -webkit-linear-gradient(#e57373, #d32f2f); /* For Safari 5.1 to 6.0 */
+              background: -o-linear-gradient(#e57373, #d32f2f); /* For Opera 11.1 to 12.0 */
+              background: -moz-linear-gradient(#e57373, #d32f2f); /* For Firefox 3.6 to 15 */
+              background: linear-gradient(#e57373, #d32f2f); /* Standard syntax */
+              }
+        </style>
     </head>
-    <body class="#d32f2f red darken-2">
+    <body>
         
         <!-- Navegador -->
-        <nav class="nav-extended #d32f2f red darken-2" style="height: 168px;">
+        <nav class="nav-extended" style="height: 178px;font-family: 'Roboto', sans-serif;">
             <div class="nav-wrapper">
+                <img style="height: 100px; float:left; margin:10px;" class="responsive-img" src="IMG/secretario.png" alt=""/>
+                <h5 class="grey-text text-darken-3" style="font-style:normal;float:left; margin-top: 30px;">Dr. Jaime Patiño Gutierrez
+                    <br>
+                    <span class="grey-text text-darken-4" style="font-size:18px;line-height: 50px;">Secretario General</span>
+                </h5>
                 <a href="#" class="brand-logo center " style="margin-bottom: 100px;">
                     <div style="margin-top: 10px;"class="valign-wrapper">
-                        <img style="max-height: 100px;" class="circle responsive-img" src="IMG/escudo1.jpg" alt=""/>
-                        <h4 class="valign">&nbsp;&nbsp;&nbsp;Sección 13 "Rama Médica"&nbsp;&nbsp;&nbsp;
+                        <img style="height: 100px; width:100px;" class="circle responsive-img" src="IMG/escudo1.jpg" alt=""/>
+                        <h4 class="grey-text text-darken-3 valign" style="color:#f0f0f0; font-style:normal;">&nbsp;&nbsp;&nbsp;Sección 13 Rama Médica&nbsp;&nbsp;&nbsp;
                             <br>
-                            <span class="light grey-text text-lighten-3 valign" style="font-size:20px;">Dr. Jaime Patiño Gutierrez</span>
+                            <center><span class="light grey-text text-darken-4 valign" style="font-size:25px;line-height: 50px;">"Presencia, Trabajo y Honestidad"</span></center>
 			</h4>
-                        <img style="max-width: 100px;" class=" circle responsive-img" src="IMG/escudo2.jpg" alt=""/>
+                        <img style="height: 100px; width:100px;" class=" circle responsive-img" src="IMG/escudo2.jpg" alt=""/>
                     </div>  
                 </a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                  <%if(sesion.getAttribute("Usuario")==null){%>
-                    <li><a class="waves-effect waves-light" href="#modal1">Iniciar Sesion</a></li>
-                    <li><a class="waves-effect waves-light" href="#modal2">Registrarse</a></li>
-                  <%}else{%>
-                    <li><a class="waves-effect waves-light" href="../CerrarSesion">Cerrar Sesion</a></li>
-                  <%}%>
+                    <li><a class="waves-effect waves-light grey-text text-darken-4" href="#modal1">Iniciar Sesion</a></li>
+                    <li><a class="waves-effect waves-light grey-text text-darken-4" href="#modal2">Registrarse</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                  <%if(sesion.getAttribute("Usuario")==null){%>
                     <li><a class="waves-effect waves-light" href="#modal1">Iniciar Sesion</a></li>
                     <li><a class="waves-effect waves-light" href="#modal2">Registrarse</a></li>
-                  <%}else{%>
-                    <li><a class="waves-effect waves-light" href="../CerrarSesion">Cerrar Sesion</a></li>
-                  <%}%>
                 </ul>
             </div>
-            <div class="nav-content #d32f2f red darken-1" style="margin-top: 55px;">
-              <ul class="tabs tabs-transparent">
-                  <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Para visualizar el contenido debes Iniciar Sesion."<%}%><%else{%>href="inicio.jsp"<%}%>>Inicio</a></li>
-                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Si aún no cuentas con una sesión puedes Registrarte."<%}%><%else{%>href="inicio.jsp"<%}%>>Directorio</a></li>
-                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Prueba Iniciando Sesion o bien Registrandote."<%}%><%else{%>href="inicio.jsp"<%}%>">Carteras</a></li>
-                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Debes Iniciar Sesión."<%}%><%else{%>href="inicio.jsp"<%}%>>Galeria</a></li>
+            <div id="men" class="nav-content" style="margin-top: 65px; width:100%; height:100px;">
+              <ul class="tabs-transparent">
+                <li class="tab active"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Para visualizar el contenido debes Iniciar Sesion."<%}%><%else{%>href="inicio.jsp"<%}%>>Inicio</a></li>
+                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Si aún no cuentas con una sesión puedes Registrarte."<%}%><%else{%>href="sobre_nosotros.jsp"<%}%>>Sobre Nosotros</a></li>
+                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Si aún no cuentas con una sesión puedes Registrarte."<%}%><%else{%>href="directorio.jsp"<%}%>>Directorio</a></li>
+                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Prueba Iniciando Sesion o bien Registrandote."<%}%><%else{%>href="carteras.jsp"<%}%>>Carteras</a></li>
+                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Debes Iniciar Sesión."<%}%><%else{%>href="galeria.jsp"<%}%>>Galeria</a></li>
+                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Debes Iniciar Sesión."<%}%><%else{%>href="ubicacion.jsp"<%}%>>Ubicación</a></li>
+                <li class="tab"><a href="http://docs.wixstatic.com/ugd/9864f8_cc9b20982de64c4ca147cc0f85671503.pdf" target="_blank">CGT</a></li>
               </ul>
             </div>
             <script>
@@ -69,36 +88,16 @@ String b64 = null;%>
         
         <!-- Slider -->
         <div class="carousel carousel-slider">
-            <%ArrayList<Imagen> i = new Imagen().mostrarImagenes2();
-            switch(i.size()){
-                case 0:
-                break;
-                case 1:
-            b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(i.get(0).getImag());%>
-            <a class="carousel-item" href="#one!"><img src="data:image/jpg;base64, <%=b64%>" alt=""/></a>
-            <%
-                break;
-                case 2:
-            b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(i.get(1).getImag());%>
-            <a class="carousel-item" href="#two!"><img src="data:image/jpg;base64, <%=b64%>" alt=""/></a>
-            <%
-                break;
-                case 3:
-            b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(i.get(1).getImag());%>
-            <a class="carousel-item" href="#three!"><img src="data:image/jpg;base64, <%=b64%>" alt=""/></a>
-            <%
-                break;
-                case 4:
-            b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(i.get(1).getImag());%>
-            <a class="carousel-item" href="#four!"><img src="data:image/jpg;base64, <%=b64%>" alt=""/></a>
-            <%break;}%>
+            <a class="carousel-item" href="#one!"><img src="IMG/chale2.jpg" alt=""/></a>
+            <a class="carousel-item" href="#one!"><img src="IMG/chales.png" alt=""/></a>
+            
         </div>
         <script>
             $('.carousel.carousel-slider').carousel({fullWidth: true});
         </script>
         
        <!-- Footer -->
-        <footer class="page-footer #d32f2f red darken-2 z-depth-5">
+        <footer class="page-footer z-depth-5">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -123,8 +122,8 @@ String b64 = null;%>
               </div>
             </div>
           </div>
-          <div class="footer-copyright #b71c1c red darken-4">
-            <div class="container #b71c1c red darken-4">
+          <div class="footer-copyright #c62828 red darken-3">
+            <div class="container #c62828 red darken-3">
             © 2017 Sección 13 "Rama Médica"
             <a class="grey-text text-lighten-4 right" href="#!">Made by °_° LuckyProg</a>
             </div>
@@ -147,8 +146,11 @@ String b64 = null;%>
                         <div class="row">
                               <div class="input-field col s12">
                                 <input id="password" type="password" name="password" class="validate">
-                                <label for="password">Password</label>
+                                <label for="password">Contraseña</label>
                               </div>
+                        </div>
+                        <div class="row">
+                            <a href="#modal3"><i class="material-icons">vpn_key</i>&nbsp;Olvidé mi contraseña</a>
                         </div>
                           <div class="modal-footer" style="padding-right:40px;">
                 <button class="btn waves-effect waves-light #d32f2f red darken-2" type="submit" name="cosa"  style="margin-top:-13px;">Iniciar
@@ -169,18 +171,32 @@ String b64 = null;%>
                     <form class="col s12" name="registro" method="post" action="RegistrarUsuario" accept-charset="ISO-8859-1">
                         <div class="row">
                               <div class="input-field col s12 l6">
-                                <input id="first_name" name="nombre" type="text" class="validate">
-                                <label for="first_name">Nombre</label>
+                                <input id="first_name" name="nombre" type="text" class="validate" required>
+                                <label for="first_name">* Nombre</label>
                               </div>
                               <div class="input-field col s12 l6">
-                                <input id="last_name" name="ap" type="text" class="validate">
-                                <label for="last_name">Apellido Paterno</label>
+                                <input id="last_name" name="ap" type="text" class="validate" required>
+                                <label for="last_name">* Apellido Paterno</label>
                               </div>
                             <div class="input-field col s12 l6">
-                                <input id="last_name" name="am" type="text" class="validate">
-                                <label for="last_name">Apellido Materno</label>
+                                <input id="last_name" name="am" type="text" class="validate" required>
+                                <label for="last_name">* Apellido Materno</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <i class="material-icons prefix">phone</i>&nbsp;<input id="telefono" name="telefono" type="number" class="validate" required>
+                                <label for="telefono">* Teléfono</label>
+                            </div>
+                              <div class="input-field col s8">
+                                <input id="email" name="email" type="email" class="validate" required>
+                                <label for="email">*Correo</label>
+                              </div>
+                              <div class="input-field col s4 offset-s4">
+                                <input id="password" name="password" type="password" class="validate" required>
+                                <label for="password">*Password</label>
                               </div>
                         </div>
+                        <br><br><br>
+                        <h6>Opcional</h6>
                           <div class="row">
                               <div class="input-field col s12">
                                 <input id="last_name" name="institucion" type="text" class="validate">
@@ -197,62 +213,15 @@ String b64 = null;%>
                               <div class="input-field col s12">
                               <select name="seccion_sindi">
                                 <option value="" disabled selected>-</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                <option value="4">Option 3</option>
-                                <option value="5">Option 3</option>
-                                <option value="6">Option 1</option>
-                                <option value="7">Option 2</option>
-                                <option value="8">Option 3</option>
-                                <option value="9">Option 3</option>
-                                <option value="10">Option 3</option>
-                                <option value="11">Option 1</option>
-                                <option value="12">Option 2</option>
-                                <option value="13">Option 3</option>
-                                <option value="14">Option 3</option>
-                                <option value="15">Option 3</option>
-                                <option value="16">Option 1</option>
-                                <option value="17">Option 2</option>
-                                <option value="18">Option 3</option>
-                                <option value="19">Option 3</option>
-                                <option value="20">Option 3</option>
-                                <option value="21">Option 1</option>
-                                <option value="22">Option 2</option>
-                                <option value="23">Option 3</option>
-                                <option value="24">Option 3</option>
-                                <option value="3">Option 3</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                <option value="3">Option 3</option>
-                                <option value="3">Option 3</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                <option value="3">Option 3</option>
-                                <option value="3">Option 3</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                <option value="3">Option 3</option>
-                                <option value="3">Option 3</option>
+                                <%for(int x = 1; x < 41; x++){%>
+                                <option value="<%=x%>"><%=x%></option>
+                                <%}%>
                               </select>
                               <label>Sección Sindical</label>
                             </div>
                           </div>
-                        <div class="row">
-                              <div class="input-field col s12">
-                                <input id="email" name="email" type="email" class="validate">
-                                <label for="email">Email</label>
-                              </div>
-                        </div>
-                        <div class="row">
-                              <div class="input-field col s4 offset-s4">
-                                <input id="password" name="password" type="password" class="validate">
-                                <label for="password">Password</label>
-                              </div>
-                        </div>
+                        
+                        
                           <script>
                             $(document).ready(function() {
                               $('select').material_select();
@@ -263,6 +232,35 @@ String b64 = null;%>
                                     <i class="material-icons right">send</i>
                               </button>
                           </div>
+                      </form>
+                </div>
+              </div>
+
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal3" class="modal col s12 m2" style="border-radius:15px;">
+              <div class="modal-content" style="margin-top:-30px;margin-bottom:-40px;">
+                &nbsp;&nbsp;&nbsp;<h4><i class="medium material-icons" style="position:relative;top:10px;">vpn_key</i>&nbsp;Cambiar contraseña</h4>
+                <br>
+                <div class="row">
+                      <form class="col s12" name="login" method="post" action="CambiarPass">
+                        <div class="row">
+                              <div class="input-field col s12">
+                                <input id="email" type="email" name="email" class="validate">
+                                <label for="email">Correo</label>
+                              </div>
+                        </div>
+                        <div class="row">
+                              <div class="input-field col s12">
+                                <input id="password" type="password" name="password" class="validate">
+                                <label for="password">Nueva contraseña</label>
+                              </div>
+                        </div>
+                          <div class="modal-footer" style="padding-right:40px;">
+                <button class="btn waves-effect waves-light #d32f2f red darken-2" type="submit" name="cosa"  style="margin-top:-13px;">Cambiar
+                      <i class="material-icons right">send</i>
+                </button>
+              </div>
                       </form>
                 </div>
               </div>
@@ -280,9 +278,19 @@ String b64 = null;%>
             swal("Oops!", "Usuario y/o contraseña incorrectos", "error");
         </script>
         <%}
-        else if(ses.equalsIgnoreCase("d8n29dns9n0ns72")){%>
+        if(ses.equalsIgnoreCase("d8n29dns9n0ns72")){%>
         <script>
             swal("Ahora puedes iniciar sesión", "El registro ha sido realizado correctamente", "success");
+        </script>
+        <%}
+        if(ses.equalsIgnoreCase("687jj8bka9")){%>
+        <script>
+            swal("Se ha enviado la confirmación a tu correo electrónico");
+        </script>
+        <%}
+        if(ses.equalsIgnoreCase("vyfudghifi8adk")){%>
+        <script>
+            swal("Ahora puedes iniciar sesión", "El cambio de contraseña ha sido realizado correctamente", "success");
         </script>
         <%}%>
 	</body>
