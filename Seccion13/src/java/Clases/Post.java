@@ -22,13 +22,15 @@ public class Post {
     private String idImagen;
     private String idDocumento;
     private String fecha;
+    private String tipo;
     
-    public Post(String texto, String titulo, String idImagen, String idDocumento){
+    public Post(String texto, String titulo, String idImagen, String idDocumento, String tipo){
         
         this.texto = texto;
         this.titulo = titulo;
         this.idImagen = idImagen;
         this.idDocumento = idDocumento;
+        this.tipo = tipo;
         
     }
     
@@ -41,12 +43,13 @@ public class Post {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "INSERT INTO post (texto, titulo, id_img, id_doc, fecha) values (?,?,?,?,now())";
+            String sql = "INSERT INTO post (texto, titulo, id_img, id_doc, fecha, stipo) values (?,?,?,?,now(),?)";
             ps = c.prepareStatement(sql);
             ps.setString(1, this.texto);
             ps.setString(2, this.titulo);
             ps.setString(3, this.idImagen);
             ps.setString(4, this.idDocumento);
+            ps.setString(5, this.tipo);
             ps.executeUpdate();
             return true;            
 
@@ -85,6 +88,7 @@ public class Post {
                 postit.setRutaImagen(rs.getString("id_img"));
                 postit.setRutaDocumento(rs.getString("id_doc"));
                 postit.setFecha(rs.getString("fecha"));
+                postit.setTipo(rs.getString("tipo"));
                 post.add(postit);
             }
         }catch(SQLException ex){
@@ -146,6 +150,14 @@ public class Post {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+    
+    public String getTipo(){
+        return tipo;
+    }
+    
+    public void(String tipo){
+        this.tipo = tipo;
     }
     
 }
