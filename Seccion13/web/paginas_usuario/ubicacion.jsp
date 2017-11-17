@@ -14,13 +14,16 @@ if(sesion.getAttribute("Usuario") == null){
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
-        <title>JSP Page</title>
+        <title>Sección 13</title>
+        <link rel="shortcut icon" href="../IMG/escudo2.ico" />
     </head>
-    <body class="#e57373 red lighten-2">
+    <body>
         <jsp:include page="menu.jsp" flush="true">
             <jsp:param name="pos" value='6'/>
         </jsp:include>
         <br>
+        <div style="background: url(../IMG/ubica.jpg);background-repeat: no-repeat;background-size: cover;background-position: center;background-attachment: fixed;margin-top: 5%;">
+        <div style="background: rgba(50, 180, 80,.85);padding: 40px;">
         <div class="container #fafafa grey lighten-5" style="padding: 20px;">
             <center>
             <h3 style="color:#0f0f0f;">Ubicación</h3>
@@ -28,6 +31,8 @@ if(sesion.getAttribute("Usuario") == null){
             <br>
             <div id="map" style="width:90%; height:500px; background:white;"></div>
             </center>
+        </div>
+        </div>
         </div>
         <script>
             function myMap() {

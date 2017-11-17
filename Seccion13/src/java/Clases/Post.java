@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -22,8 +23,8 @@ public class Post {
     private String idImagen;
     private String idDocumento;
     private String fecha;
+    private int id_post;
     private String tipo;
-    
     public Post(String texto, String titulo, String idImagen, String idDocumento, String tipo){
         
         this.texto = texto;
@@ -43,7 +44,7 @@ public class Post {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "INSERT INTO post (texto, titulo, id_img, id_doc, fecha, stipo) values (?,?,?,?,now(),?)";
+            String sql = "INSERT INTO post (texto, titulo, id_img, id_doc, fecha, tipo) values (?,?,?,?,now(),?)";
             ps = c.prepareStatement(sql);
             ps.setString(1, this.texto);
             ps.setString(2, this.titulo);
@@ -66,9 +67,9 @@ public class Post {
         }
     }
     
-    public Vector<Post> obtenerPost(){
+    public ArrayList<Post> obtenerPost(){
         
-        Vector<Post> post =  new Vector<Post>();
+        ArrayList<Post> post = new ArrayList();
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -77,12 +78,56 @@ public class Post {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "select * from Post order by id_post DESC";
+            String sql = "select * from post order by id_post DESC";
             ps = c.prepareStatement(sql);
             rs=ps.executeQuery();
             
             while(rs.next()){
                 postit = new Post();
+                postit.setId_post(rs.getInt("id_post"));
+                postit.setTexto(rs.getString("texto"));
+                postit.setTitulo(rs.getString("titulo"));
+                postit.setRutaImagen(rs.getString("id_img"));
+                postit.setRutaDocumento(rs.getString("id_doc"));
+                postit.setFecha(rs.getString("fecha"));
+                postit.setTipo(rs.getString("tipo"));
+                post.add(postit);
+            }
+        }catch(SQLException ex){
+            System.out.println(ex);
+            ex.printStackTrace();
+            post=null;
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                c.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return post;
+    
+    }
+
+    public ArrayList<Post> obtenerPostporTipo(String tipo){
+        System.out.println(tipo);
+        ArrayList<Post> post = new ArrayList();
+        Connection c = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Post postit = null;
+        
+        try{
+            c = new Conexion().getConexion();
+            
+            String sql = "select * from post where tipo = '"+tipo+"' order by id_post DESC";
+            ps = c.prepareStatement(sql);
+            rs=ps.executeQuery();
+            
+            while(rs.next()){
+                postit = new Post();
+                postit.setId_post(rs.getInt("id_post"));
                 postit.setTexto(rs.getString("texto"));
                 postit.setTitulo(rs.getString("titulo"));
                 postit.setRutaImagen(rs.getString("id_img"));
@@ -98,18 +143,37 @@ public class Post {
         }finally{
             try{
                 //rs.close();
-                //ps.close();
+                ps.close();
                 c.close();
             }catch(SQLException ex){
                 ex.printStackTrace();
             }
         }
         return post;
-        /*Vector <Quinela> q =new Quinela().mostrarPronosticos(id_usuario,semana);
-                    Vector <Quinela> q2 =new Quinela().mostrarPronosticos(id2,semana);
-                    int pos = 0;
-                    for(Quinela qui:q){*/
     
+    }
+
+    public void borrarPost(int id_post){
+        Connection c = null;
+        PreparedStatement ps = null;
+        try{
+            c = new Conexion().getConexion();
+            
+            String sql = "DELETE from post where id_post = ?";
+            ps = c.prepareStatement(sql);
+            ps.setInt(1, id_post);
+            ps.executeUpdate();          
+
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            try{
+                ps.close();
+                c.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
     }
 
     public String getTexto() {
@@ -151,13 +215,19 @@ public class Post {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-    
+
+    public void setId_post(int id_post){
+        this.id_post = id_post;
+    }
+    public int getId_post(){
+        return id_post;
+    }
+
+    public void setTipo(String tipo){
+        this.tipo = tipo;
+    }
     public String getTipo(){
         return tipo;
-    }
-    
-    public void(String tipo){
-        this.tipo = tipo;
     }
     
 }

@@ -46,8 +46,10 @@
             </div>
             <div class="nav-content #0d47a1 blue darken-2" style="margin-top: 55px;">
               <ul>
-                  <li><a href="inicio.jsp">Inicio</a></li>
                   <li><a href="usuarios.jsp">Usuarios</a></li>
+                  <li><a href="inicio.jsp">Agregar Publicación</a></li>
+                  <li><a href="posts.jsp">Eliminar Publicación</a></li>
+                  <li><a href="agregarImg.jsp">Agregar Imagen</a></li>
               </ul>
             </div>
             <script>

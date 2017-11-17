@@ -26,10 +26,8 @@
               <div class="col l6 s12">
 			    <h5 class="white-text">Algo más...</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">> Iniciar Sesión</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">> Registrarse</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">> Acerca de nosotros</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">> Términos de privacidad</a></li>
+                  <li><a class="grey-text text-lighten-3" href="../CerrarSesion">> Cerrar Sesión</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#" onclick="window.open('../Archivos/AVISO_DE_PRIVACIDAD_S13.pdf', '_blank', 'fullscreen=yes'); return false;">> Términos de privacidad</a></li>
                 </ul>
               </div>
               <div class="col l4 offset-l2 s12">

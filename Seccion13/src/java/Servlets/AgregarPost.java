@@ -66,23 +66,23 @@ public class AgregarPost extends HttpServlet {
             }
             try{
                 if(!i&&!d){
-                    new Post(request.getParameter("texto"), request.getParameter("titulo"), null, null).agregarPost();
+                    new Post(request.getParameter("texto"), request.getParameter("titulo"), null, null,request.getParameter("tipo")).agregarPost();
                 }
                 if(i&&!d){
-                    new Post(request.getParameter("texto"), request.getParameter("titulo"), new Imagen(is, ext, archi.getSize()).guardarImagen(), null).agregarPost();
+                    new Post(request.getParameter("texto"), request.getParameter("titulo"), new Imagen(is, ext, archi.getSize()).guardarImagen(), null,request.getParameter("tipo")).agregarPost();
                 }
                 if(!i&&d){
-                    new Post(request.getParameter("texto"), request.getParameter("titulo"), null, new Documento(doc, extd, archi2.getSize()).guardarDocumento()).agregarPost();
+                    new Post(request.getParameter("texto"), request.getParameter("titulo"), null, new Documento(doc, extd, archi2.getSize()).guardarDocumento(),request.getParameter("tipo")).agregarPost();
                 }
                 if(i&&d){
-                    new Post(request.getParameter("texto"), request.getParameter("titulo"), new Imagen(is, ext, archi.getSize()).guardarImagen(), new Documento(doc, extd, archi2.getSize()).guardarDocumento()).agregarPost();
+                    new Post(request.getParameter("texto"), request.getParameter("titulo"), new Imagen(is, ext, archi.getSize()).guardarImagen(), new Documento(doc, extd, archi2.getSize()).guardarDocumento(),request.getParameter("tipo")).agregarPost();
                 }
                 new Correo().enviarCorreo(new Usuario().getCorreos(), request.getParameter("titulo"), request.getParameter("texto"));
             }catch(Exception e){
                 e.printStackTrace();
             }
             
-            response.sendRedirect("Todo bien");
+            response.sendRedirect("paginas_admin/inicio.jsp");
     }
     
 }

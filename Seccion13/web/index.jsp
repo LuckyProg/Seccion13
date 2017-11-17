@@ -1,3 +1,4 @@
+<%@page import="Clases.Post"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Clases.Imagen"%>
 <%@page import="Clases.Imagen"%>
@@ -17,119 +18,135 @@ String b64 = null;%>
         <script src="sweetalert-master/dist/sweetalert.min.js"></script>
         <link rel="stylesheet" href="sweetalert-master/dist/sweetalert.css">
         <title>Seccion13</title>
+        <link rel="shortcut icon" href="IMG/escudo2.ico" />
         <style type="text/css">
-            #men ul li a{
-                padding:15px;
-            }
-            .nav-extended{
-                background: #ef5350; /* For browsers that do not support gradients */
-                background: -webkit-linear-gradient(left bottom, #d32f2f, white); /* For Safari 5.1 to 6.0 */
-                background: -o-linear-gradient(top right, #d32f2f, white); /* For Opera 11.1 to 12.0 */
-                background: -moz-linear-gradient(top right, #d32f2f, white); /* For Firefox 3.6 to 15 */
-                background: linear-gradient(to top right, #d32f2f, white); /* Standard syntax */
-            }
-            .page-footer{
-              background: #e53935; /* For browsers that do not support gradients */
-              background: -webkit-linear-gradient(#e57373, #d32f2f); /* For Safari 5.1 to 6.0 */
-              background: -o-linear-gradient(#e57373, #d32f2f); /* For Opera 11.1 to 12.0 */
-              background: -moz-linear-gradient(#e57373, #d32f2f); /* For Firefox 3.6 to 15 */
-              background: linear-gradient(#e57373, #d32f2f); /* Standard syntax */
-              }
+        body{
+            background: #fafafa;
+        }
+        /* The navigation bar */
+        .navbar {
+            overflow: hidden;
+            background-color: #fafafa;
+            position: fixed; /* Set the navbar to fixed position */
+            top: 0; /* Position the navbar at the top of the page */
+            width: 100%; /* Full width */
+            height: 15%;
+            color: #d32f2f;
+            z-index: 10;
+            margin-top: -10px;
+        }
+        .navbar ul li a{
+            margin-right: 5px;
+        }
+        .navbar ul li .es{
+            background: rgba(250,0,0,.5);
+            color: #fafafa;
+            margin-right:8px;
+        }
+        /* Links inside the navbar */
+        .navbar a {
+            float: left;
+            display: block;
+            color: #d32f2f;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .carousel{
+            margin-top: 7%;
+            z-index: 5;
+        }
         </style>
     </head>
     <body>
-        
-        <!-- Navegador -->
-        <nav class="nav-extended" style="height: 178px;font-family: 'Roboto', sans-serif;">
-            <div class="nav-wrapper">
-                <img style="height: 100px; float:left; margin:10px;" class="responsive-img" src="IMG/secretario.png" alt=""/>
-                <h5 class="grey-text text-darken-3" style="font-style:normal;float:left; margin-top: 30px;">Dr. Jaime Patiño Gutierrez
-                    <br>
-                    <span class="grey-text text-darken-4" style="font-size:18px;line-height: 50px;">Secretario General</span>
-                </h5>
-                <a href="#" class="brand-logo center " style="margin-bottom: 100px;">
-                    <div style="margin-top: 10px;"class="valign-wrapper">
-                        <img style="height: 100px; width:100px;" class="circle responsive-img" src="IMG/escudo1.jpg" alt=""/>
-                        <h4 class="grey-text text-darken-3 valign" style="color:#f0f0f0; font-style:normal;">&nbsp;&nbsp;&nbsp;Sección 13 Rama Médica&nbsp;&nbsp;&nbsp;
-                            <br>
-                            <center><span class="light grey-text text-darken-4 valign" style="font-size:25px;line-height: 50px;">"Presencia, Trabajo y Honestidad"</span></center>
-			</h4>
-                        <img style="height: 100px; width:100px;" class=" circle responsive-img" src="IMG/escudo2.jpg" alt=""/>
-                    </div>  
-                </a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a class="waves-effect waves-light grey-text text-darken-4" href="#modal1">Iniciar Sesion</a></li>
-                    <li><a class="waves-effect waves-light grey-text text-darken-4" href="#modal2">Registrarse</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a class="waves-effect waves-light" href="#modal1">Iniciar Sesion</a></li>
-                    <li><a class="waves-effect waves-light" href="#modal2">Registrarse</a></li>
-                </ul>
-            </div>
-            <div id="men" class="nav-content" style="margin-top: 65px; width:100%; height:100px;">
-              <ul class="tabs-transparent">
+        <div class="navbar">
+            <a href="#" class="brand-logo center " style="margin-right: 6%;">
+                <div style="margin-top: 10px;position:relative;" class="valign-wrapper">
+                    <img style="height: 90px; width:90px;" class="circle responsive-img" src="IMG/escudo2.png" alt=""/>
+                    <h5 class="valign">&nbsp;&nbsp;&nbsp;Sección 13 Rama Médica&nbsp;&nbsp;&nbsp;
+                        <br>
+                        <center><span class="light valign" style="font-size:18px;line-height: 50px;">"Presencia, Trabajo y Honestidad"</span></center>
+                    </h5>
+                </div>  
+            </a>
+            <br>
+            <ul class="tabs-transparent valign">
+                <b>
                 <li class="tab active"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Para visualizar el contenido debes Iniciar Sesion."<%}%><%else{%>href="inicio.jsp"<%}%>>Inicio</a></li>
-                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Si aún no cuentas con una sesión puedes Registrarte."<%}%><%else{%>href="sobre_nosotros.jsp"<%}%>>Sobre Nosotros</a></li>
+                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Si aún no cuentas con una sesión puedes Registrarte."<%}%><%else{%>href="sobre_nosotros.jsp"<%}%>>Secretario General</a></li>
+                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Si aún no cuentas con una sesión puedes Registrarte."<%}%><%else{%>href="sobre_nosotros.jsp"<%}%>>Historia</a></li>
                 <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Si aún no cuentas con una sesión puedes Registrarte."<%}%><%else{%>href="directorio.jsp"<%}%>>Directorio</a></li>
                 <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Prueba Iniciando Sesion o bien Registrandote."<%}%><%else{%>href="carteras.jsp"<%}%>>Carteras</a></li>
                 <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Debes Iniciar Sesión."<%}%><%else{%>href="galeria.jsp"<%}%>>Galeria</a></li>
-                <li class="tab"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Debes Iniciar Sesión."<%}%><%else{%>href="ubicacion.jsp"<%}%>>Ubicación</a></li>
-                <li class="tab"><a href="http://docs.wixstatic.com/ugd/9864f8_cc9b20982de64c4ca147cc0f85671503.pdf" target="_blank">CGT</a></li>
-              </ul>
-            </div>
-            <script>
-                $(".button-collapse").sideNav();
-                $(document).ready(function(){
-                    $('.tooltipped').tooltip({delay: 50});
-                });
-            </script>
-        </nav>
-        
-        <!-- Slider -->
-        <div class="carousel carousel-slider">
-            <a class="carousel-item" href="#one!"><img src="IMG/chale2.jpg" alt=""/></a>
-            <a class="carousel-item" href="#one!"><img src="IMG/chales.png" alt=""/></a>
-            
+                <li class="tab es"><a <%if(sesion.getAttribute("Usuario")==null){%>class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Debes Iniciar Sesión."<%}%><%else{%>href="ubicacion.jsp"<%}%>>Ubicación</a></li>
+                </b>
+                <li><a class="waves-effect waves-light es" href="#modal1">Iniciar Sesion</a></li>
+                <li><a class="waves-effect waves-light es" href="#modal2">Registrarse</a></li>
+            </ul>
         </div>
-        <script>
-            $('.carousel.carousel-slider').carousel({fullWidth: true});
+       
+        <div class="carousel carousel-slider center" data-indicators="true" style="background:url(IMG/fodo.jpg);background-repeat: no-repeat;background-size: cover;background-position: center;background-attachment: fixed;">
+            <div class="carousel-fixed-item center">
+                <a class="btn waves-effect white grey-text darken-text-2">Noticias</a>
+            </div>
+            <%ArrayList<Post> p = new Post().obtenerPost();
+            if(p.size()>0){%>
+            <div class="carousel-item white-text" href="#one!" style="background: rgba(250,100,100,.8);">
+                <br>
+                <br>
+                <%=p.get(0).getFecha()%>
+                <h1 style="font-size:30px;"><b><%=p.get(0).getTitulo()%></b></h1>
+                <p class="white-text" style="font-size:20px;"><%=p.get(0).getTexto()%></p>
+            </div>
+            <%}if(p.size()>1){%>
+            <div class="carousel-item white-text" href="#one!" style="background: rgba(250,100,100,.8);">
+                <br>
+                <br>
+                <%=p.get(0).getFecha()%>
+                <h1 style="font-size:30px;"><b><%=p.get(1).getTitulo()%></b></h1>
+                <p class="white-text" style="font-size:20px;"><%=p.get(1).getTexto()%></p>
+            </div>
+            <%}if(p.size()>2){%>
+            <div class="carousel-item white-text" href="#one!" style="background: rgba(250,100,100,.8);">
+                <br>
+                <br>
+                <%=p.get(0).getFecha()%>
+                <h1 style="font-size:30px;"><b><%=p.get(2).getTitulo()%></b></h1>
+                <p class="white-text" style="font-size:20px;"><%=p.get(2).getTexto()%></p>
+            </div>
+            <%}if(p.size()>3){%>
+            <div class="carousel-item white-text" href="#one!" style="background: rgba(250,100,100,.8);">
+                <br>
+                <br>
+                <%=p.get(0).getFecha()%>
+                <h1 style="font-size:30px;"><b><%=p.get(3).getTitulo()%></b></h1>
+                <p class="white-text" style="font-size:20px;"><%=p.get(3).getTexto()%></p>
+            </div>
+            <%}%>
+        </div>
+        <script type="text/javascript">
+             $('.carousel.carousel-slider').carousel({fullWidth: true});
         </script>
-        
-       <!-- Footer -->
-        <footer class="page-footer z-depth-5">
-          <div class="container">
+        <br>
+        <br>
+        <div class="container">
             <div class="row">
-              <div class="col l6 s12">
-			    <h5 class="white-text">Algo más...</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">> Iniciar Sesión</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">> Registrarse</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">> Acerca de nosotros</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">> Términos de privacidad</a></li>
-                </ul>
-              </div>
-              <div class="col l4 offset-l2 s12">
-				<h5 class="white-text">Síguenos...</h5>
-                <p class="grey-text text-lighten-4"><br>
-					<a target="_blank" title="find us on Facebook" href="https://www.facebook.com/www.alternativa13.infored.mx/">
-						<i class="fa fa-facebook" aria-hidden="true" style="font-size:45px;color:#fff;"></i>
-					</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a target="_blank" title="follow me on twitter" href="https://twitter.com/alternativa13?lang=es">
-						<i class="fa fa-twitter" aria-hidden="true" style="font-size:45px;color:#fff;"></i>
-					</a>
-				</p>
-              </div>
+                <div class="col s4"><center><img style="width:150px;" class="responsive-img right" src="IMG/dr_jaime.png" alt=""/></center></div>
+                <div class="col s4">
+                    <br>
+                    <center>
+                        <b style="font-size:28px;">Dr. Jaime Patiño Gutierrez</b>
+                        <br>
+                        <br>
+                        <span style="font-size:25px;">Secretario General</span> 
+                    </center>
+                </div>
             </div>
-          </div>
-          <div class="footer-copyright #c62828 red darken-3">
-            <div class="container #c62828 red darken-3">
-            © 2017 Sección 13 "Rama Médica"
-            <a class="grey-text text-lighten-4 right" href="#!">Made by °_° LuckyProg</a>
-            </div>
-          </div>
-        </footer>
-        
+        </div>
+        <br>
+        <br>
         <!-- Modal Structure -->
         <div id="modal1" class="modal col s12 m2" style="border-radius:15px;">
               <div class="modal-content" style="margin-top:-30px;margin-bottom:-40px;">
@@ -168,7 +185,7 @@ String b64 = null;%>
                 &nbsp;&nbsp;<h4><i class="medium material-icons" style="position:relative;top:10px;">perm_identity</i>&nbsp;Registrarse</h4>
                 <br>
                 <div class="row">
-                    <form class="col s12" name="registro" method="post" action="RegistrarUsuario" accept-charset="ISO-8859-1">
+                    <form class="col s12" name="registro" method="post" action="RegistrarU" accept-charset="ISO-8859-1">
                         <div class="row">
                               <div class="input-field col s12 l6">
                                 <input id="first_name" name="nombre" type="text" class="validate" required>
@@ -220,8 +237,6 @@ String b64 = null;%>
                               <label>Sección Sindical</label>
                             </div>
                           </div>
-                        
-                        
                           <script>
                             $(document).ready(function() {
                               $('select').material_select();
@@ -293,5 +308,6 @@ String b64 = null;%>
             swal("Ahora puedes iniciar sesión", "El cambio de contraseña ha sido realizado correctamente", "success");
         </script>
         <%}%>
-	</body>
+        <jsp:include page="paginas_usuario/footer.jsp" flush="true"/>
+    </body>
 </html>

@@ -31,9 +31,10 @@ if(sesion.getAttribute("Usuario") == null){
                     </div>
                     <div class="card-tabs">
                         <ul class="tabs tabs-fixed-width">
-                          <li class="tab"><a href="#test4">Título</a></li>
-                          <li class="tab"><a class="active" href="#test5">Agregar imagen</a></li>
+                          <li class="tab"><a class="active" href="#test4">Título</a></li>
+                          <li class="tab"><a href="#test5">Agregar imagen</a></li>
                           <li class="tab"><a href="#test6">Agregar documento</a></li>
+                          <li class="tab"><a href="#test7">Tipo de Publicación</a></li>
                         </ul>
                     </div>
                     <div class="card-content grey lighten-4">
@@ -68,6 +69,23 @@ if(sesion.getAttribute("Usuario") == null){
                                 </div>
                             </div>
                         </div>
+                        <div id="test7">
+                            <div class="input-field col s12">
+                                <br>
+                                <select id="tip" name="tipo" style="background: white;">
+                                    <option value="Noticia" selected>Noticia</option>
+                                    <option value="Convocatoria">Convocatoria</option>
+                                    <option value="Formato">Formato</option>
+                                    <option value="Aviso">Aviso</option>
+                                </select>
+                                <label for="tip">Tipo de Publicación</label>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+                                $('select').material_select();
+                            });
+                        </script>
                     </div>
                     <button class="btn waves-effect waves-light #4db6ac teal lighten-1 right-align" type="submit" name="action" style="position:relative; left:82%; margin-top: 20px; margin-bottom: 20px;">Guardar
                         <i class="material-icons right">send</i>

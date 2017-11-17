@@ -35,7 +35,7 @@ public class RegistrarU extends HttpServlet {
            Usuario usu = new Usuario(request.getParameter("nombre"),
                                       request.getParameter("ap"),
                                       request.getParameter("am"),
-                                      Integer.parseInt(request.getParameter("telefono")),
+                                      request.getParameter("telefono"),
                                       request.getParameter("institucion"),
                                       ne,
                                       ss,
@@ -46,7 +46,7 @@ public class RegistrarU extends HttpServlet {
             if(usu.registrarUsuario()){
                 response.sendRedirect("index.jsp");
             }else{
-            response.sendRedirect("noregistro.jsp");
+            response.sendRedirect("index.jsp");
             }
     }
 

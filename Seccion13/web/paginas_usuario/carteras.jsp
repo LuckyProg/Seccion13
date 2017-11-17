@@ -14,14 +14,15 @@ if(sesion.getAttribute("Usuario") == null){
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
-        <title>JSP Page</title>
+        <title>Sección 13</title>
+        <link rel="shortcut icon" href="../IMG/escudo2.ico" />
         <style>
 
             /* Style the tab */
             div.tab {
                 float: left;
                 border: 1px solid #ccc;
-                background-color: #fff3e0;
+                background:transparent;
                 width: 30%;
                 height: 760px;
             }
@@ -62,11 +63,13 @@ if(sesion.getAttribute("Usuario") == null){
             }
         </style>
     </head>
-    <body class="#e57373 red lighten-2">
+    <body>
         <jsp:include page="menu.jsp" flush="true">
             <jsp:param name="pos" value='4'/>
         </jsp:include>
-        <div class="#fafafa grey lighten-5" style="padding: 35px; height:820px; margin:50px; margin-top: 30px; border-radius: 5px;">
+        <div style="background: url(../IMG/carteras.jpg);background-repeat: no-repeat;background-size: cover;background-position: center;background-attachment: fixed;margin-top: 5%;">
+        <div style="background: rgba(50, 80, 180,.85);margin-top: 5%;padding: 3px;">
+        <div style="padding: 35px; height:820px; margin:50px; margin-top: 5%; border-radius: 5px;background: rgba(255,255,255,.95);">
               <div class="tab">
                 <button class="tablinks" onclick="openCity(event, '1')" id="defaultOpen">Dígitos</button>
                 <button class="tablinks" onclick="openCity(event, '2')" id="defaultOpen">Préstamos</button>
@@ -206,7 +209,7 @@ if(sesion.getAttribute("Usuario") == null){
               <div id="6" class="tabcontent">
                 <center><h3>Premios y estímulos</h3></center>
                 <br>
-                <p style="text-align: justify; font-size: 17px;">
+                <p style="text-align: justify; font-size: 20px;">
                     El Gobierno otorgará estímulos y recompensas a los trabajadores que se distingan por su asistencia, puntualidad y eficiencia en el trabajo, así como por su antigüedad en el servicio, independientemente de los que establece la Ley de Premios, Estímulos y Recompensas Civiles.
                     <br>
                     <br>
@@ -226,9 +229,19 @@ if(sesion.getAttribute("Usuario") == null){
               <div id="8" class="tabcontent">
                 <center><h3>Becas</h3></center>
                 <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, justo tempus rutrum varius, mi nisi efficitur justo, in dignissim quam eros nec risus. Sed lectus nisi, congue euismod elementum commodo, interdum vel odio. Sed ligula dolor, aliquam quis est a, commodo tempus velit. Suspendisse dignissim, elit ac scelerisque fringilla, ipsum metus eleifend leo, a interdum felis nisi pharetra urna. Donec a euismod metus, at vulputate urna. Phasellus risus lorem, fringilla eu dictum sed, ultrices at velit. Curabitur cursus lacinia felis vel sagittis. Aliquam at pellentesque nisl. Ut maximus, urna ut imperdiet imperdiet, neque ligula facilisis nisi, et elementum ex metus ut augue. Donec efficitur ipsum quam, quis condimentum turpis gravida quis. Fusce consectetur lacus elit, non aliquet ipsum semper et. Morbi eget diam sollicitudin massa pellentesque ultricies.
+                <p style="text-align: justify; font-size: 20px;">
+                    El SUTGCDMX otorga becas económicas a los hijos de los trabajadores en los niveles primaria, secundaria y bachillerato, de acuerdo a sus promedios, de forma mensual o cuatrimestral.
                     <br>
-                    Nam justo urna, fringilla ut vulputate tincidunt, fermentum in nisi. Quisque et arcu id magna bibendum congue sit amet et sapien. Pellentesque lobortis massa in elit molestie, ut iaculis diam varius. Fusce vitae leo eu dolor placerat porttitor. Nullam a sapien metus. Ut imperdiet justo velit, eget commodo libero pharetra efficitur. Nunc vulputate quis metus eget vestibulum. Etiam ut turpis cursus, aliquet velit suscipit, luctus lorem. Fusce condimentum mattis metus et condimentum. Donec eu sapien sit amet dolor ullamcorper mattis et vehicula ligula. Curabitur iaculis orci sed enim elementum, non lacinia nisi imperdiet. Vestibulum ullamcorper auctor elit, auctor sollicitudin nibh rutrum vel. Nunc id sollicitudin tellus, nec fermentum justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla egestas, urna in ultrices aliquam, tortor diam accumsan lorem, ut cursus augue est sed urna. Fusce bibendum augue vitae rhoncus lobortis.</p>
+                    Esta inscripción o renovación se tramita de manera personal el trabajador, cumpliendo con los lineamientos y requerimientos que se publican en una convocatoria de manera anual.
+                    <br>
+                    <br>
+                    De la misma manera apoya a los trabajadores e hijos de los trabajadores con el pago de TITULACION (pago único).
+                    <br>
+                    Otro estimulo es el que se les otorga a los trabajadores, conyugue e hijos al concluir sus estudios de LICENCIATURA.
+                    <br>
+                    <br>
+                    El pago de las becas otorgadas se efectua de manera directa a los beneficiarios,a través de tarjeta electrónica bancaria.
+                </p>
               </div>
               <div id="9" class="tabcontent">
                 <center><h3>Organización</h3></center>
@@ -268,10 +281,17 @@ if(sesion.getAttribute("Usuario") == null){
               <div id="12" class="tabcontent">
                 <center><h3>Trabajo y conflictos</h3></center>
                 <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, justo tempus rutrum varius, mi nisi efficitur justo, in dignissim quam eros nec risus. Sed lectus nisi, congue euismod elementum commodo, interdum vel odio. Sed ligula dolor, aliquam quis est a, commodo tempus velit. Suspendisse dignissim, elit ac scelerisque fringilla, ipsum metus eleifend leo, a interdum felis nisi pharetra urna. Donec a euismod metus, at vulputate urna. Phasellus risus lorem, fringilla eu dictum sed, ultrices at velit. Curabitur cursus lacinia felis vel sagittis. Aliquam at pellentesque nisl. Ut maximus, urna ut imperdiet imperdiet, neque ligula facilisis nisi, et elementum ex metus ut augue. Donec efficitur ipsum quam, quis condimentum turpis gravida quis. Fusce consectetur lacus elit, non aliquet ipsum semper et. Morbi eget diam sollicitudin massa pellentesque ultricies.
-                    <br>
-                    Nam justo urna, fringilla ut vulputate tincidunt, fermentum in nisi. Quisque et arcu id magna bibendum congue sit amet et sapien. Pellentesque lobortis massa in elit molestie, ut iaculis diam varius. Fusce vitae leo eu dolor placerat porttitor. Nullam a sapien metus. Ut imperdiet justo velit, eget commodo libero pharetra efficitur. Nunc vulputate quis metus eget vestibulum. Etiam ut turpis cursus, aliquet velit suscipit, luctus lorem. Fusce condimentum mattis metus et condimentum. Donec eu sapien sit amet dolor ullamcorper mattis et vehicula ligula. Curabitur iaculis orci sed enim elementum, non lacinia nisi imperdiet. Vestibulum ullamcorper auctor elit, auctor sollicitudin nibh rutrum vel. Nunc id sollicitudin tellus, nec fermentum justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla egestas, urna in ultrices aliquam, tortor diam accumsan lorem, ut cursus augue est sed urna. Fusce bibendum augue vitae rhoncus lobortis.</p>
-              </div>
+                <h5 class="">Funciones</h5>
+                    <p style="text-align: justify; font-size: 20px;">
+                        • Encargarse de dar solución a todos los problemas relacionados con la violación de nuestras Condiciones Generales de Trabajo.
+                        <br>
+                        • Asesorar y orientar a los agremiados acerca de sus derechos laborales.
+                        <br>
+                        • Mantiene la inviolabilidad de las conquistas de trabajo derivadas de la ley y la costumbre.
+                        <br>
+                        • Lleva registro de las demandas, antecedentes y resoluciones de los diferentes conflictos de trabajo.
+                </p>
+                </div>
 
               <script>
               function openCity(evt, cityName) {
@@ -291,6 +311,8 @@ if(sesion.getAttribute("Usuario") == null){
               // Get the element with id="defaultOpen" and click on it
               document.getElementById("defaultOpen").click();
               </script>
+        </div>
+        </div>
         </div>
         <jsp:include page="footer.jsp" flush="true"/>
     </body>

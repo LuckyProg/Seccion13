@@ -35,7 +35,7 @@ public class CambiarPass extends HttpServlet {
             String correo = new Vigenere().encriptarTextoClaro(request.getParameter("email"),"che");
             String pass = new Vigenere().encriptarTextoClaro(request.getParameter("password"),"che");
         new Correo().enviarUnCorreo(request.getParameter("email"), "Solicitud cambio de contraseña.", "Para continuar con el proceso ir a la siguiente liga:\n"
-                + "192.168.1.85:8080/Seccion13/Confirmacion?correo="+request.getParameter("email")+"&pass="+request.getParameter("password"));
+                + "www.seccion13.com.mx/Confirmacion?correo="+request.getParameter("email")+"&pass="+request.getParameter("password"));
         response.sendRedirect("index.jsp?bjkdfhs2u2hd3kj2d3bsfhdshfdsbfd8d7dskjff32jd0972hdsfhdsavfdbfdbsfnds892bafudhfjfhdisf=687jj8bka9");
     }
 

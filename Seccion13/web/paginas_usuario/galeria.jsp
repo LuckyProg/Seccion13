@@ -17,6 +17,7 @@ if(sesion.getAttribute("Usuario") == null){
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
         <title>Sección 13</title>
+        <link rel="shortcut icon" href="../IMG/escudo2.ico" />
         <style type="text/css">
             .colls{
                 border: 1px solid #D9D9D9;
@@ -27,6 +28,10 @@ if(sesion.getAttribute("Usuario") == null){
                 margin: 5px;
                 background: rgba(255,255,255,0.5);
             }
+            .gal{
+                margin-top: 5%;
+                width:107%;
+            }
             imgg{
                 position:relative; 
                 width:100%; 
@@ -35,12 +40,16 @@ if(sesion.getAttribute("Usuario") == null){
         </style>
     </head>
     <%ArrayList<Imagen> i = new Imagen().mostrarImagenes();%>
-    <body class="#e57373 red lighten-2" onclick="clic()">
+    <body onclick="clic()">
         <jsp:include page="menu.jsp" flush="true">
             <jsp:param name="pos" value='5'/>
         </jsp:include>
         <br>
-        <div class="row">
+        <div class="row gal">
+        <%for(Imagen img:i){
+          b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(img.getImag());%>
+          <div class="col colls"><center><img src="data:image/jpg;base64, <%=b64%>" class="materialboxed img" id="<%=img.getId_img()%>" style="position:relative; width:100%; max-height:inherit;"/></center></div>
+        <%}%>
         <div class="col colls"><center><img src="../IMG/1.JPG" class="materialboxed img" id="01" style="position:relative; width:100%; max-height:inherit;"/></center></div>
         <div class="col colls"><center><img src="../IMG/2.jpg" class="materialboxed img" id="02" style="position:relative; width:100%; max-height:inherit;"/></center></div>
         <div class="col colls"><center><img src="../IMG/3.jpg" class="materialboxed img" id="03" style="position:relative; width:100%; max-height:inherit;"/></center></div>
@@ -58,10 +67,6 @@ if(sesion.getAttribute("Usuario") == null){
         <div class="col colls"><center><img src="../IMG/15.jpg" class="materialboxed img" id="015" style="position:relative; width:100%; max-height:inherit;"/></center></div>
         <div class="col colls"><center><img src="../IMG/16.jpg" class="materialboxed img" id="016" style="position:relative; width:100%; max-height:inherit;"/></center></div>
         <div class="col colls"><center><img src="../IMG/17.jpg" class="materialboxed img" id="017" style="position:relative; width:100%; max-height:inherit;"/></center></div>
-        <%for(Imagen img:i){
-          b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(img.getImag());%>
-          <div class="col colls"><center><img src="data:image/jpg;base64, <%=b64%>" class="materialboxed img" id="<%=img.getId_img()%>" style="position:relative; width:100%; max-height:inherit;"/></center></div>
-        <%}%>
         </div>
         <br>
         <jsp:include page="footer.jsp" flush="true"/>

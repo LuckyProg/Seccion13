@@ -39,7 +39,7 @@ public class Correo {
     }
     
      public boolean enviarCorreo(InternetAddress[] destinos, String asunto, String mensa){
-        Correo c = new Correo("derdavid2010@gmail.com", "gtyrslfpmdiplinf", destino, asunto, mensa);
+        Correo c = new Correo("seccionramamedica13@gmail.com", "ofndruxcsitmwxrf", destino, asunto, mensa);
         try{
             Properties p = new Properties();
             p.put("mail.smtp.host", "smtp.gmail.com");
@@ -77,7 +77,7 @@ public class Correo {
       }
      
      public boolean enviarUnCorreo(String destino, String asunto, String mensa){
-        Correo c = new Correo("derdavid2010@gmail.com", "gtyrslfpmdiplinf", destino, asunto, mensa);
+        Correo c = new Correo("seccionramamedica13@gmail.com", "ofndruxcsitmwxrf", destino, asunto, mensa);
         try{
             Properties p = new Properties();
             p.put("mail.smtp.host", "smtp.gmail.com");

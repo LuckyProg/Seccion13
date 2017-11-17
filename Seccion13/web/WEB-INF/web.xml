@@ -28,6 +28,14 @@
         <servlet-name>RegistrarU</servlet-name>
         <servlet-class>Servlets.RegistrarU</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AgregarImg</servlet-name>
+        <servlet-class>Servlets.AgregarImg</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BorrarPost</servlet-name>
+        <servlet-class>Servlets.BorrarPost</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IniciarSesion</servlet-name>
         <url-pattern>/IniciarSesion</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>RegistrarU</servlet-name>
         <url-pattern>/RegistrarU</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AgregarImg</servlet-name>
+        <url-pattern>/AgregarImg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BorrarPost</servlet-name>
+        <url-pattern>/BorrarPost</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

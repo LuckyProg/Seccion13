@@ -23,6 +23,7 @@ public class Usuario {
     private String correo;
     private String pass;
     private int rol;
+    private String telefono;
 
     //Constructores
     
@@ -39,11 +40,12 @@ public class Usuario {
      * @param pass
      * @param rol 
      */
-    public Usuario(int id_usuario,String nombre, String ap, String am, String inst, int no_empleado, int seccion_sindi, String unidad_ads, String correo, String pass, int rol) {
+    public Usuario(int id_usuario,String nombre, String ap, String am, String telefono, String inst, int no_empleado, int seccion_sindi, String unidad_ads, String correo, String pass, int rol) {
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.ap = ap;
         this.am = am;
+        this.telefono = telefono;
         this.inst = inst;
         this.no_empleado = no_empleado;
         this.seccion_sindi = seccion_sindi;
@@ -65,12 +67,13 @@ public class Usuario {
      * @param pass
      * @param rol 
      */
-    public Usuario(String nombre, String ap, String am, String inst, int no_empleado, int seccion_sindi, String unidad_ads, String correo, String pass, int rol) {
+    public Usuario(String nombre, String ap, String am, String telefono, String inst, int no_empleado, int seccion_sindi, String unidad_ads, String correo, String pass, int rol) {
         this.nombre = nombre;
         this.ap = ap;
         this.am = am;
         this.inst = inst;
         this.no_empleado = no_empleado;
+        this.telefono = telefono;
         this.seccion_sindi = seccion_sindi;
         this.unidad_ads = unidad_ads;
         this.correo = correo;
@@ -93,7 +96,7 @@ public class Usuario {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "SELECT id_usuario,AES_DECRYPT(nombre, 'cheng') as nombre,AES_DECRYPT(apaterno, 'cheng') as apaterno,AES_DECRYPT(amaterno, 'cheng') as amaterno,AES_DECRYPT(instlabo, 'cheng') as instlabo,AES_DECRYPT(no_empleado, 'cheng') as no_empleado,AES_DECRYPT(seccionsindi, 'cheng') as seccionsindi,AES_DECRYPT(unidad_ads, 'cheng') as unidad_ads,AES_DECRYPT(correo, 'cheng') as correo,AES_DECRYPT(pass, 'cheng') as pass,rol FROM usuario where rol = ?";
+            String sql = "SELECT id_usuario,AES_DECRYPT(nombre, 'cheng') as nombre,AES_DECRYPT(apaterno, 'cheng') as apaterno,AES_DECRYPT(amaterno, 'cheng') as amaterno,AES_DECRYPT(telefono, 'cheng') as telefono,AES_DECRYPT(instlabo, 'cheng') as instlabo,AES_DECRYPT(no_empleado, 'cheng') as no_empleado,AES_DECRYPT(seccionsindi, 'cheng') as seccionsindi,AES_DECRYPT(unidad_ads, 'cheng') as unidad_ads,AES_DECRYPT(correo, 'cheng') as correo,AES_DECRYPT(pass, 'cheng') as pass,rol FROM usuario where rol = ?";
             ps = c.prepareStatement(sql);
             ps.setInt(1, 1);
             rs = ps.executeQuery();
@@ -103,6 +106,7 @@ public class Usuario {
                                          rs.getString("nombre"),
                                          rs.getString("apaterno"),
                                          rs.getString("amaterno"),
+                                         rs.getString("telefono"),
                                          rs.getString("instlabo"),
                                          rs.getInt("no_empleado"),
                                          rs.getInt("seccionsindi"),
@@ -137,25 +141,51 @@ public class Usuario {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "INSERT INTO usuario (nombre,apaterno,amaterno,instlabo,no_empleado,seccionsindi,unidad_ads,correo,pass,rol) "
-                    + "values (  AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),?)";
+            String sql = "INSERT INTO usuario (nombre,apaterno,amaterno,telefono,instlabo,no_empleado, seccionsindi, unidad_ads,correo, pass, rol) values (  AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),AES_ENCRYPT(?, 'cheng'),?)";
             ps = c.prepareStatement(sql);
             ps.setNString(1, this.nombre);
             ps.setNString(2, this.ap);
             ps.setNString(3, this.am);
-            ps.setNString(4, this.inst);
-            ps.setInt(5, this.no_empleado);
-            ps.setInt(6, this.seccion_sindi);
-            ps.setNString(7, this.unidad_ads);
-            ps.setNString(8, this.correo);
-            ps.setNString(9, this.pass);
-            ps.setInt(10, this.rol);
+            ps.setNString(4, this.telefono);
+            ps.setNString(5, this.inst);
+            ps.setInt(6, this.no_empleado);
+            ps.setInt(7, this.seccion_sindi);
+            ps.setNString(8, this.unidad_ads);
+            ps.setNString(9, this.correo);
+            ps.setNString(10, this.pass);
+            ps.setInt(11, 1);
             ps.executeUpdate();
             return true;
             
         }catch(SQLException ex){
             ex.printStackTrace();
             return false;
+        }finally{
+            try{
+                ps.close();
+                c.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        
+    }
+
+    public void cambiarPass(String correo, String pass){
+        Connection c = null;
+        PreparedStatement ps = null;
+        
+        try{
+            c = new Conexion().getConexion();
+            
+            String sql = "UPDATE usuario set pass = AES_ENCRYPT(?, 'cheng') where AES_DECRYPT(correo, 'cheng') = ?";
+            ps = c.prepareStatement(sql);
+            ps.setNString(1, pass);
+            ps.setNString(2, correo);
+            ps.executeUpdate();
+            
+        }catch(SQLException ex){
+            ex.printStackTrace();
         }finally{
             try{
                 ps.close();
@@ -185,7 +215,7 @@ public class Usuario {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "SELECT id_usuario,AES_DECRYPT(nombre, 'cheng') as nombre,AES_DECRYPT(apaterno, 'cheng') as apaterno,AES_DECRYPT(amaterno, 'cheng') as amaterno,AES_DECRYPT(instlabo, 'cheng') as instlabo,AES_DECRYPT(no_empleado, 'cheng') as no_empleado,AES_DECRYPT(seccionsindi, 'cheng') as seccionsindi,AES_DECRYPT(unidad_ads, 'cheng') as unidad_ads,AES_DECRYPT(correo, 'cheng') as correo,AES_DECRYPT(pass, 'cheng') as pass,rol FROM usuario where AES_DECRYPT(correo,'cheng') = ? and AES_DECRYPT(pass,'cheng') = ?";
+            String sql = "SELECT id_usuario,AES_DECRYPT(nombre, 'cheng') as nombre,AES_DECRYPT(apaterno, 'cheng') as apaterno,AES_DECRYPT(amaterno, 'cheng') as amaterno,AES_DECRYPT(telefono, 'cheng') as telefono,AES_DECRYPT(instlabo, 'cheng') as instlabo,AES_DECRYPT(no_empleado, 'cheng') as no_empleado,AES_DECRYPT(seccionsindi, 'cheng') as seccionsindi,AES_DECRYPT(unidad_ads, 'cheng') as unidad_ads,AES_DECRYPT(correo, 'cheng') as correo,AES_DECRYPT(pass, 'cheng') as pass,rol FROM usuario where  AES_DECRYPT(correo,'cheng') = ? and  AES_DECRYPT(pass,'cheng') = ?";
             ps = c.prepareStatement(sql);
             ps.setString(1, correo);
             ps.setString(2, pass);
@@ -196,6 +226,7 @@ public class Usuario {
                                          rs.getString("nombre"),
                                          rs.getString("apaterno"),
                                          rs.getString("amaterno"),
+                                         rs.getString("telefono"),
                                          rs.getString("instlabo"),
                                          rs.getInt("no_empleado"),
                                          rs.getInt("seccionsindi"),
@@ -298,6 +329,10 @@ public class Usuario {
 
     public int getRol() {
         return rol;
+    }
+
+    public String getTelefono() {
+        return telefono;
     }
     
 }
