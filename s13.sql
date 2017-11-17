@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: seccion13
 -- ------------------------------------------------------
--- Server version	5.7.16-log
+-- Server version	5.7.11-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,30 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `diplomas`
+--
+
+DROP TABLE IF EXISTS `diplomas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `diplomas` (
+  `id_dip` int(4) NOT NULL AUTO_INCREMENT,
+  `nom_dip` varchar(50) NOT NULL,
+  `tit_dip` varchar(10) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id_dip`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `diplomas`
+--
+
+LOCK TABLES `diplomas` WRITE;
+/*!40000 ALTER TABLE `diplomas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `diplomas` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `documentos`
@@ -132,14 +156,6 @@ LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES (1,'&[\"AÄ¼o„Î.Y³fè','Môà6“á×Ýçü6','Môà6“á×Ýçü6','²Žu®/.7lqò—þB¢','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','²Žu®/.7lqò—þB¢','$qƒÑãÔÞ-¦fBÄg³Ç¼W:ŒuçlY Xœ±+','#âˆ³ªÏê:¼Ø•¹',0,'£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ'),(2,'š¬d\r-õ²~R/|Ú;˜ä',' ‘çrK­%[9mpÐµó','è)»Û$¥°ð‹p{','²Žu®/.7lqò—þB¢','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','²Žu®/.7lqò—þB¢','ŸèhF\'HußƒXÿ;=­ŠKU´‚ƒílÅßŽQ','âeò1n„~\"pª÷«®Â',1,'£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ'),(3,'3¯™ªO~Ìf]Cì¾','ÄÌfñQ·–ÝÔÚ:hæ','­›žUò¢è°lÄù¤³“','²Žu®/.7lqò—þB¢','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','²Žu®/.7lqò—þB¢','÷lÎm8«þUÃ¬8ÈºQUY$åÙNÙ<§Sø÷-üTŸ','#âˆ³ªÏê:¼Ø•¹',1,'j»LÇßÞ\\?z¼IPPV'),(4,'3¯™ªO~Ìf]Cì¾','ÄÌfñQ·–ÝÔÚ:hæ','­›žUò¢è°lÄù¤³“','²Žu®/.7lqò—þB¢','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','²Žu®/.7lqò—þB¢','÷%Ú6ƒ»„ë n=¹ÅCP­~ÏÕãŸ­¤q¥_','#âˆ³ªÏê:¼Ø•¹',1,'j»LÇßÞ\\?z¼IPPV'),(5,'&›ìÆÝÕÒô\rjÂâÃ','&›ìÆÝÕÒô\rjÂâÃ','&›ìÆÝÕÒô\rjÂâÃ','²Žu®/.7lqò—þB¢','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','²Žu®/.7lqò—þB¢','xŠIµÚ•Ã*¬žæN¹˜ß-pkîÚæe=“cþ','}GCÄG)H¨çQ±âá',0,'_¥Ï’Ú÷ëš$*Š^Ë—');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'seccion13'
---
-
---
--- Dumping routines for database 'seccion13'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -150,4 +166,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-27 20:38:40
+-- Dump completed on 2017-11-17 17:02:44
