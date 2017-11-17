@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: seccion13
 -- ------------------------------------------------------
--- Server version	5.7.11-log
+-- Server version	5.7.16-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -104,6 +104,7 @@ CREATE TABLE `post` (
   `id_img` varchar(10) DEFAULT NULL,
   `id_doc` varchar(10) DEFAULT NULL,
   `fecha` date NOT NULL,
+  `tipo` varchar(50) NOT NULL DEFAULT 'Noticia',
   PRIMARY KEY (`id_post`),
   KEY `id_img` (`id_img`),
   KEY `id_doc` (`id_doc`),
@@ -118,7 +119,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (2,'text0','titule',NULL,NULL,'2017-07-27'),(3,'blabla','Prueba','LsoOyC7liS',NULL,'2017-07-27'),(5,'Documento de Condiciones','Condiciones',NULL,'qef10Zi205','2017-07-27');
+INSERT INTO `post` VALUES (2,'text0','titule',NULL,NULL,'2017-07-27','Noticia'),(3,'blabla','Prueba','LsoOyC7liS',NULL,'2017-07-27','Noticia'),(5,'Documento de Condiciones','Condiciones',NULL,'qef10Zi205','2017-07-27','Noticia');
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,6 +157,14 @@ LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES (1,'&[\"AÄ¼o„Î.Y³fè','Môà6“á×Ýçü6','Môà6“á×Ýçü6','²Žu®/.7lqò—þB¢','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','²Žu®/.7lqò—þB¢','$qƒÑãÔÞ-¦fBÄg³Ç¼W:ŒuçlY Xœ±+','#âˆ³ªÏê:¼Ø•¹',0,'£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ'),(2,'š¬d\r-õ²~R/|Ú;˜ä',' ‘çrK­%[9mpÐµó','è)»Û$¥°ð‹p{','²Žu®/.7lqò—þB¢','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','²Žu®/.7lqò—þB¢','ŸèhF\'HußƒXÿ;=­ŠKU´‚ƒílÅßŽQ','âeò1n„~\"pª÷«®Â',1,'£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ'),(3,'3¯™ªO~Ìf]Cì¾','ÄÌfñQ·–ÝÔÚ:hæ','­›žUò¢è°lÄù¤³“','²Žu®/.7lqò—þB¢','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','²Žu®/.7lqò—þB¢','÷lÎm8«þUÃ¬8ÈºQUY$åÙNÙ<§Sø÷-üTŸ','#âˆ³ªÏê:¼Ø•¹',1,'j»LÇßÞ\\?z¼IPPV'),(4,'3¯™ªO~Ìf]Cì¾','ÄÌfñQ·–ÝÔÚ:hæ','­›žUò¢è°lÄù¤³“','²Žu®/.7lqò—þB¢','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','²Žu®/.7lqò—þB¢','÷%Ú6ƒ»„ë n=¹ÅCP­~ÏÕãŸ­¤q¥_','#âˆ³ªÏê:¼Ø•¹',1,'j»LÇßÞ\\?z¼IPPV'),(5,'&›ìÆÝÕÒô\rjÂâÃ','&›ìÆÝÕÒô\rjÂâÃ','&›ìÆÝÕÒô\rjÂâÃ','²Žu®/.7lqò—þB¢','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','£ÁÕ<ÆÅºq®Ï^“ªƒ¶ÿ','²Žu®/.7lqò—þB¢','xŠIµÚ•Ã*¬žæN¹˜ß-pkîÚæe=“cþ','}GCÄG)H¨çQ±âá',0,'_¥Ï’Ú÷ëš$*Š^Ë—');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'seccion13'
+--
+
+--
+-- Dumping routines for database 'seccion13'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -166,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-17 17:02:44
+-- Dump completed on 2017-11-17 17:28:27

@@ -26,7 +26,7 @@ public class Diploma {
         Diploma dipper = null;
         try {
             c = new Conexion().getConexion();
-            String sql = "select tit_dip, nom_dip from Diploma;";
+            String sql = "select tit_dip, nom_dip from diplomas;";
             ps = c.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
