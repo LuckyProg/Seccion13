@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Secci&oacute;n 13</title>
     </head>
     <body>
         <table> 
@@ -22,15 +22,21 @@
                 ArrayList<Diploma> stan = mabel.mostrarDiplomas();
                 for(Diploma d:stan){
             %>
-            <tr> 
-                <td>
-                    <%= d.getTitulo()%>   
-                </td>
-                
-                <td>
-                    <%= d.getNombre()%>   
-                </td>
-            </tr>
+            <form method="get" action="../Diplomas">    
+                <tr> 
+                    <td>
+                        <%= d.getTitulo()%> <input type="hidden" value="<%= d.getTitulo()%>" name="tit">   
+                    </td>
+
+                    <td>
+                        <%= d.getNombre()%> <input type="hidden" value="<%= d.getNombre()%>" name="nom">  
+                    </td>
+                    
+                    <td>
+                        <input type="submit" value="Descargar">
+                    </td>
+                </tr>
+            </form>
             <%}%>
         </table>
         

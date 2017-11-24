@@ -36,6 +36,10 @@
         <servlet-name>BorrarPost</servlet-name>
         <servlet-class>Servlets.BorrarPost</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Diplomas</servlet-name>
+        <servlet-class>Servlets.Diplomas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IniciarSesion</servlet-name>
         <url-pattern>/IniciarSesion</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>BorrarPost</servlet-name>
         <url-pattern>/BorrarPost</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Diplomas</servlet-name>
+        <url-pattern>/Diplomas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
