@@ -3,6 +3,8 @@ package Servlets;
 import Clases.Diploma;
 import com.itextpdf.text.DocumentException;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -34,7 +36,8 @@ public class Diplomas extends HttpServlet {
         response.setHeader("Cache-Control", "no-cache");
         response.setHeader("Expires", "-1");
         try {
-            response.getOutputStream().write(new Diploma().obtenerDiploma(request.getParameter("tit"), request.getParameter("nom")));
+            response.getOutputStream().write(new Diploma().obtenerDiploma(new URLDecoder().decode(request.getParameter("tit"),"ISO-8859-1"), 
+                    new URLDecoder().decode(request.getParameter("nom"), "ISO-8859-1")));
         } catch (DocumentException ex) {
             Logger.getLogger(Diplomas.class.getName()).log(Level.SEVERE, null, ex);
         }

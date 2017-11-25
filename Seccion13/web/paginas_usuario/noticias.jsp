@@ -31,7 +31,6 @@ String tipo = request.getParameter("tipo");
         <input type="text" id="buscador" onkeyup="myfunction()" placeholder="    Buscar publicación.." style="background:#f0f0f0; border-bottom: 1px solid #f0f0f0; color:#0f0f0f; font-size: 18px;">
             <%
             if(tipo!=null){
-                System.out.println("estoy inspirado charlie xd");
                 ArrayList<Post> p = new Post().obtenerPostporTipo(tipo);
             if(!p.isEmpty()){
             for(Post post:p){

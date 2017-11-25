@@ -91,7 +91,7 @@ String b64 = null;%>
             <div class="carousel-fixed-item center">
                 <a class="btn waves-effect white grey-text darken-text-2">Noticias</a>
             </div>
-            <%ArrayList<Post> p = new Post().obtenerPost();
+            <%ArrayList<Post> p = new Post().obtenerPostporTipo("Noticia");
             if(p.size()>0){%>
             <div class="carousel-item white-text" href="#one!" style="background: rgba(250,100,100,.8);">
                 <br>

@@ -3,6 +3,9 @@ package Clases;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,13 +15,9 @@ import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Image;
-import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
+import com.itextpdf.text.PageSize;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import javax.imageio.ImageIO;
 
 public class Diploma {
     private String titulo;
@@ -64,18 +63,20 @@ public class Diploma {
     }
     
     public byte[] obtenerDiploma(String tit, String nom) throws DocumentException, BadElementException, IOException {
-        Document dip = new Document();
+        Document dip = new Document(PageSize.LETTER.rotate());
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
         PdfWriter writer = PdfWriter.getInstance(dip, baos);
         dip.open();
-        dip.add(new Paragraph("Los juguetes lo vemos tooooooodo. Juega bonito Cid"));
+        System.out.println(tit+nom);
+        Paragraph p = new Paragraph("A: "+tit+" "+nom, new Font(FontFamily.HELVETICA, 18));
+        p.setAlignment(Element.ALIGN_CENTER);
+        p.setMultipliedLeading(15);
+        dip.add(p);
         PdfContentByte canvas = writer.getDirectContentUnder();
-        URL lita = new URL(getCodeBase(), "IMG/dr_jaime.png");
-        BufferedImage in = ImageIO.read(new File("dip.PNG"));
-        ImageIO.write( in, "png", baos2);
-        Image virgencita = Image.getInstance(baos2.toByteArray());
-        virgencita.setAbsolutePosition(0, 0);
+        Image virgencita = Image.getInstance(new Imagen().ob2());
+        virgencita.scaleAbsolute(792,612);
+        virgencita.setAbsolutePosition(0, -5);
         canvas.addImage(virgencita);
         dip.close();
         return baos.toByteArray();

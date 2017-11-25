@@ -133,6 +133,38 @@ public class Imagen {
         return data;
     }
     
+    
+    public byte[] ob2(){
+        Connection c = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        byte[] data = null;
+        try{
+            c = new Conexion().getConexion();
+            
+            String sql = "SELECT img FROM imaux";
+            ps = c.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){             
+                Blob blob = rs.getBlob("img");
+                data = blob.getBytes(1, (int)blob.length());
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                c.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return data;
+    }
+    
+    
     public String obtenerExt(String id_img){
         Connection c = null;
         PreparedStatement ps = null;
@@ -207,7 +239,7 @@ public class Imagen {
         try{
             c = new Conexion().getConexion();
             
-            String sql = "SELECT id_img, img FROM imagenes order by id_img DESC LIMIT 4";
+            String sql = "SELECT id_img, img FROM imagenes where order by id_img DESC LIMIT 4";
             ps = c.prepareStatement(sql);
             rs = ps.executeQuery();
             
